@@ -1,0 +1,385 @@
+@font-face {
+    font-family: "BDOGrotesk";
+    src: url("./LCT_BDO_Grotesk/Fonts/ttf/BDOGrotesk-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "BDOGrotesk";
+    src: url("./LCT_BDO_Grotesk/Fonts/ttf/BDOGrotesk-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "BDOGrotesk", sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-blue {
+    box-shadow: 0 0 20px rgba(4, 136, 233, 0.3);
+}
+
+.electric-gradient {
+    background: linear-gradient(135deg, #0488e9 0%, #0c4a9c 100%);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #ffffff, #0488e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+
+    background: white;
+
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
+}
+
+#cursor-dot.active {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0.1;
+    mix-blend-mode: normal;
+}
+
+.grid-bg {
+    background-image: radial-gradient(circle at 2px 2px,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 0);
+    background-size: 40px 40px;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-title .letter {
+    text-shadow: 0 0 15px rgba(4, 136, 233, 0.6);
+}
+
+.word {
+    display: inline-block;
+    white-space: nowrap;
+    /* 🔥 word break fix */
+    margin-right: 8px;
+}
+
+
+
+/* intro */
+.loader-wrap {
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.loader-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            black 70%,
+            transparent 100%);
+    pointer-events: none;
+}
+
+.load-text span {
+    display: inline-block;
+    /* opacity: 0; */
+    /* transform: translateY(-100px); */
+}
+
+/* SECTION */
+
+.testimonial-section {
+    background: #000;
+    position: relative;
+}
+
+
+/* CONTAINER */
+
+.testimonial-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* VIDEO */
+
+.testimonial-video video {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+/* SLIDER AREA */
+
+.testimonial-slider {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* TRACK */
+
+.testimonial-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    will-change: transform;
+}
+
+
+/* CARD */
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 50px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all .3s ease;
+}
+
+
+/* REVIEW TEXT */
+
+.testimonial-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+
+/* USER */
+
+.testimonial-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* USER IMAGE */
+
+.testimonial-user img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* USER NAME */
+
+.testimonial-user h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+
+/* USER ROLE */
+
+.testimonial-user span {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* MOBILE */
+
+@media (max-width:900px) {
+
+    .testimonial-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .testimonial-video video {
+        height: 350px;
+    }
+
+}
+
+#testimonials,
+#hero,
+#about,
+#products,
+#linkindin,
+#contact,
+#calculator {
+    scroll-margin-top: 100px;
+}
+
+#contactModal {
+    transition: all 0.3s ease;
+}
+
+
+/* Feature animation */
+.feature-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.group:hover .feature-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.group:hover .feature-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.group:hover .feature-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.group:hover .feature-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.group:hover .feature-item:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+/* product section */
+.productsection {
+    scroll-behavior: smooth;
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+    cursor: grab;
+    user-select: none;
+}
+
+/* hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* sidebar links */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+/* hover effect */
+.sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    transform: translateX(6px);
+}
+
+/* icon style */
+.sidebar-link i {
+    width: 18px;
+    height: 18px;
+    color: var(--brand-primary);
+}
+
+
+@media (max-width:768px) {
+    br {
+        display: none;
+    }
+}
+
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    padding: 12px 28px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 28px;
+    border-radius: 12px;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeUp {
+    animation: fadeUp 6s ease forwards;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}

@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>EV Volt - Powering the Future of Mobility</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
+    rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: "#0488E9",
+              dark: "#0C4A9C",
+            },
+            dark: {
+              900: "#000000",
+              800: "#0A0A0A",
+              700: "#121212",
+              600: "#1A1A1A",
+            },
+          },
+
+          fontFamily: {
+            headline: ["BDOGrotesk", "sans-serif"],
+            body: ["BDOGrotesk", "sans-serif"],
+            label: ["BDOGrotesk", "sans-serif"],
+          },
+
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+
+          // ✅ ADD HERE
+          screens: {
+            lgs: "992px",
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="grid-bg font-body">
+  <div id="cursor-dot"></div>
+
+  <!-- intro section -->
+  <section class="intro fixed top-0 left-0 w-full h-[100vh] z-[9999] bg-black flex items-center justify-center">
+    <div class="loader-wrap relative w-full h-full flex items-center justify-center overflow-hiddden">
+      <!-- SVG WITH CLIP -->
+      <svg class="absolute top-0 left-0 w-full h-[120vh]" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <!-- CLIP PATH -->
+        <defs>
+          <clipPath id="clip">
+            <rect x="0" y="0" width="1000" height="1000" />
+          </clipPath>
+        </defs>
+
+        <!-- WAVE -->
+        <path id="loaderPath" d="M0,200 C250,100 750,100 1000,200 L1000,0 L0,0 Z" fill="black" clip-path="url(#clip)">
+        </path>
+      </svg>
+
+      <!-- TEXT -->
+      <div class="loader-wrap-heading relative z-10">
+        <div class="load-text flex gap-2 text-4xl md:text-6xl font-bold text-white">
+          <span>R</span>
+          <span>e</span>
+          <span>d</span>
+          <span>o</span>
+          <span>x</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TopNavBar -->
+  <header>
+    <nav
+      class="fixed top-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-6xl glass-card text-white px-6 py-2 flex items-center justify-between rounded-full shadow-xl border border-white/10 z-50">
+      <!-- LEFT LINKS -->
+      <div class="hidden lgs:flex items-center gap-10 text-[15px] font-medium">
+        <a href="#hero" class="hover:text-primary transition">Home</a>
+        <a href="#about" class="hover:text-primary transition">About</a>
+        <a href="#products" class="hover:text-primary transition">Products</a>
+      </div>
+
+      <!-- LOGO -->
+      <div class="flex items-center gap-3">
+        <img src="assets/DP-logo.PNG" class="w-10 h-10 object-contain scale-[1.5]" />
+        <span class="text-lg font-semibold whitespace-nowrap">
+          DP Power Solutions
+        </span>
+      </div>
+
+      <!-- RIGHT LINKS -->
+      <div class="hidden lgs:flex items-center gap-10 text-[15px] font-medium">
+        <a href="#testimonials" class="hover:text-primary transition">Testimonials</a>
+        <a href="#linkindin" class="hover:text-primary transition">LinkedIn</a>
+        <a href="#calculator" class="hover:text-primary transition">Calculator</a>
+      </div>
+
+      <!-- HAMBURGER (ONLY BELOW 992) -->
+      <div class="lgs:hidden">
+        <button id="menu-btn" class="p-2 rounded-full hover:bg-white/10 transition">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- OVERLAY -->
+    <div id="overlay"
+      class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition duration-500 z-40">
+    </div>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar"
+      class="fixed top-0 left-0 w-[80%] max-w-sm h-full bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl border-r border-white/10 shadow-2xl p-6 transform -translate-x-full transition duration-500 z-50">
+      <!-- HEADER -->
+      <div class="flex justify-between items-center mb-10">
+        <span class="text-lg font-semibold text-white/80">Menu</span>
+
+        <button id="close-btn" class="p-2 rounded-full hover:bg-white/10 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- LINKS -->
+      <div class="flex flex-col gap-4 text-[16px] font-medium">
+        <a href="#hero" class="sidebar-link"><i data-lucide="home"></i>Home</a>
+        <a href="#about" class="sidebar-link"><i data-lucide="user"></i>About</a>
+        <a href="#products" class="sidebar-link"><i data-lucide="box"></i>Products</a>
+        <a href="#testimonials" class="sidebar-link"><i data-lucide="message-circle"></i>Testimonials</a>
+        <a href="#linkindin" class="sidebar-link"><i data-lucide="linkedin"></i>LinkedIn</a>
+        <a href="#calculator" class="sidebar-link"><i data-lucide="calculator"></i>Calculator</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-32 pb-20 bg-cover bg-center relative" id="hero">
+      <!-- style="background-image: url(&quot;./assets/hero-image1.jpg&quot;)"> -->
+
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      <div class="absolute inset-0 w-full h-full overflow-hidden">
+        <video class="w-full h-full object-cover" src="./assets/IMG_6432.mp4" autoplay muted loop playsinline>
+        </video>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+        <!-- Hero Text -->
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] text-white animate-fadeUp">
+            Driving India’s EV Future <br />
+            <span class="gradient-text block mt-3">
+              Smart Charging Solutions
+            </span>
+          </h1>
+
+          <p class="mt-6 text-gray-300 text-lg">
+            Delivering cost-effective, Made-in-India EV charging
+            infrastructure designed for reliability, performance, and
+            scalability across residential, commercial, and industrial needs.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#products" class="px-8 py-3 bg-primary rounded-lg hover:bg-primary-dark transition text-center">
+              Explore Products
+            </a>
+
+            <!-- Contact Button -->
+            <a id="openContact"
+              class="px-8 py-3 border border-white/20 rounded-lg hover:border-primary transition text-center">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- About Us Section -->
+    <section class="mx-auto max-w-7xl px-6 py-20" id="about">
+      <div class="grid grid-cols-1 items-start gap-24 lg:grid-cols-2">
+        <div>
+          <!-- <div class="mb-6 h-1 w-20 bg-primary"></div> -->
+
+          <h2 class="mb-8 hero-title font-headline text-5xl font-extrabold leading-tight tracking-tight">
+            Driving the Future of <br />
+            Green
+            <span class="text-primary"> Mobility</span>
+          </h2>
+
+          <p class="mb-10 text-xl leading-relaxed text-white/60">
+            DP Power Solutions is transforming India’s EV ecosystem with
+            reliable, high-performance charging solutions. We design and
+            deploy advanced AC/DC chargers built for Indian conditions. Our
+            focus is on delivering smart, scalable infrastructure to meet
+            growing EV demand. We aim to make charging more accessible,
+            efficient, and future-ready. Driving India’s transition toward
+            sustainable mobility.
+          </p>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div class="glass-card rounded-2xl p-8 border border-white/10">
+              <span class="material-symbols-outlined mb-6 text-4xl text-primary">
+                bolt
+              </span>
+              <h4 class="mb-2 text-xl font-bold">Peak Efficiency</h4>
+              <p class="text-sm leading-relaxed text-white/40">
+                Optimized power delivery through AI-driven load balancing
+                protocols.
+              </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 border border-white/10">
+              <span class="material-symbols-outlined mb-6 text-4xl text-primary">
+                eco
+              </span>
+              <h4 class="mb-2 text-xl font-bold">100% Sustainable</h4>
+              <p class="text-sm leading-relaxed text-white/40">
+                Our entire network is powered by certified renewable energy
+                origins.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative grid grid-cols-2 gap-6">
+          <div class="space-y-6">
+            <div class="overflow-hidden rounded-3xl border border-white/10">
+              <img alt="Solar infrastructure" class="h-80 w-full object-cover"
+                src="https://assets.technologynetworks.com/production/dynamic/images/content/376993/understanding-battery-types-components-and-the-role-of-battery-material-testing-in-development-and-376993-1280x720.webp?cb=12839931" />
+            </div>
+
+            <div class="glass-card flex h-48 flex-col justify-end rounded-3xl p-8 border border-white/10">
+              <span class="material-symbols-outlined text-4xl text-primary">
+                network_check
+              </span>
+              <p class="mt-4 font-black uppercase tracking-widest">
+                Smart Core
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6 pt-12">
+            <div class="glass-card flex h-48 flex-col justify-end rounded-3xl p-8 border border-white/10">
+              <span class="material-symbols-outlined text-4xl text-primary">
+                security
+              </span>
+              <p class="mt-4 font-black uppercase tracking-widest">
+                Secure Link
+              </p>
+            </div>
+
+            <div class="overflow-hidden rounded-3xl border border-white/10">
+              <img alt="Circuit technology" class="h-80 w-full object-cover"
+                src="https://assets.everspringpartners.com/dims4/default/ae70de0/2147483647/strip/true/crop/1600x500+0+0/resize/1600x500!/format/webp/quality/90/?url=http%3A%2F%2Feverspring-brightspot.s3.us-east-1.amazonaws.com%2F1a%2Ffc%2F6216a2e642a39735f46239a306f3%2Fadobestock-1295288689-1600x500.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- Solutions Section -->
+    <section class="bg-white/[0.02] py-20 overflow-hidden" id="products">
+      <div class="mx-auto max-w-7xl px-6">
+        <!-- Heading -->
+        <div class="mb-24 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div class="max-w-2xl">
+            <div class="mb-4 text-xs font-black uppercase tracking-[0.3em] text-brand-primary">
+              Our Products
+            </div>
+            <h2 class="hero-title font-headline text-5xl font-black tracking-tight">
+              Smart EV Charging Solutions
+            </h2>
+          </div>
+
+          <p class="max-w-md text-white/50">
+            We offer a complete range of EV charging solutions designed for
+            performance, safety, and scalability:
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div>
+          <div class="flex productsection gap-8 scroll-smooth snap-x snap-mandatory no-scrollbar px-2">
+            <!-- CARD 1 -->
+            <div
+              class="group min-w-[300px] md:min-w-[340px] lg:min-w-[360px] snap-start relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg">
+              <div class="relative h-[350px] overflow-hidden">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC6hV_wM0sI1IUEpdEH2X0zmn5IMFXpXBzt5qR6SYllMyZxwv7B_xJQkmaBTjaz__h9MRgXR30qLi1YaHG0tIZs23zzGyL4xBHprp7Jh03Ez7tgx338aYPD-VzZVohdrkqkmY1xaYqFnn4Ja-fTNZhDFEm9FfkcpZubwyQ38taDdyYz6Ql-coG7RSsXTODtavUG8O_FHIR_pOJAICoT1cnyJlmN-MjFZSUFxJjau7FGL1G65eJ4w2LaHJPFb4yLsHfimRFtEysWsjN"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+
+                <!-- overlay -->
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+
+                <!-- LEFT PANEL -->
+                <div
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-5">
+                    <!-- item -->
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="zap" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          7kW / 32A Output
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Fast and efficient home charging
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="tablet" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Ultra Compact
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Lightweight & space-saving design
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="wrench" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Easy Installation
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Setup in under 5 minutes
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Advanced Safety
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          RCD + full protection system
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- bottom content -->
+              <div class="p-6">
+                <h3 class="text-2xl font-black text-white mb-2">
+                  Air 1 : Compact & Efficient
+                </h3>
+                <p class="text-white/50 text-sm">
+                  The perfect solution for home charging – lightweight,
+                  simple, and powerful.
+                </p>
+
+                <a href="#" class="mt-6 flex gap-2 text-brand-primary font-bold items-center">
+                  Inquire <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div
+              class="group min-w-[300px] md:min-w-[340px] lg:min-w-[360px] snap-start relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg">
+              <div class="relative h-[350px] overflow-hidden">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk7nmF3AljH_aJD7AscifBrGlXnv6XjOptw0-iGcnRCSnxBAZBcrnJGkT7p1B0txgbfcQoIWgldIs4YubuvAVLKYTt83e5GDEtTZKdHiQ-W3V8Xjy6QfW9p23PKRWsvm3u2bdG0lAnlRxNTvlNvtfU6dkcGIpt-uUZ7JF5cBTKYW9Ug-0prZqhMw-FHSoPTLXjyXDz4FSmmHsbU6wyX38kxv3SiHdl6keockyOy5K83_VRDC0leeMQocstj7oGCvD5nkAbj9C-5eOn"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+
+                <!-- overlay -->
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+
+                <!-- LEFT PANEL (ONLY FEATURES) -->
+                <div
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-5">
+                    <!-- item -->
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="smartphone" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Air5: Smart & Versatile
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Smart charging for modern lifestyles with advanced
+                          app control and voice integration.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="wifi" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          WiFi Enabled
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Seamless connectivity
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="credit-card" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          RFID Access
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Secure card-based usage
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="refresh-cw" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          OTA Updates
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Always up-to-date firmware
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- BOTTOM CONTENT (NAME + BUTTON ONLY) -->
+              <div class="p-6">
+                <h3 class="text-2xl font-black text-white mb-2">
+                  Air5: Smart & Versatile
+                </h3>
+
+                <p class="text-white/50 text-sm">
+                  Smart charging with app control, RFID, and real-time
+                  monitoring.
+                </p>
+
+                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                  Inquire
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div
+              class="group min-w-[300px] md:min-w-[340px] lg:min-w-[360px] snap-start relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg">
+              <div class="relative h-[350px] overflow-hidden">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuhu-SnYJHPPMRXTr_I_jSGWIjvxr3pqR79SQGuL8Oq0YPP2euhBWe7dCcpnb7N5-kEjX8dUoIZKBP6rrc5HQBwyufUbsdzs1Mrzv-2ABk2e-HGTI4qJcGHkdUqSIcM7Du0JIynlCR6-oMEIt10-tQM1_5KFhndISFSatjOMnt7Rm37ZHSnwbONgEg34Vby0LpR5E6EUycThJD9sg7BkoUjTikWmSEnB7KmZlLdnRMDdUcJhrJGzwRU46v1Vxbe8o5oyK44QjCfkzS"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+
+                <!-- overlay -->
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+
+                <!-- LEFT PANEL (ONLY FEATURES) -->
+                <div
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-5">
+                    <!-- item -->
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="zap" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          22kW High Power
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Rapid AC charging performance
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="layers" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Integrated Design
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Compact all-in-one unit
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="shield" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Full Protection
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Over-voltage & safety systems
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="mic" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Alexa Compatible
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Voice control support
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- BOTTOM CONTENT -->
+              <div class="p-6">
+                <h3 class="text-2xl font-black text-white mb-2">
+                  Air6: Integrated High-Power
+                </h3>
+
+                <p class="text-white/50 text-sm">
+                  The ultimate choice for rapid AC charging with an
+                  integrated, space-saving design.
+                </p>
+
+                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                  Inquire
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div
+              class="group min-w-[300px] md:min-w-[340px] lg:min-w-[360px] snap-start relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg">
+              <div class="relative h-[350px] overflow-hidden">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuhu-SnYJHPPMRXTr_I_jSGWIjvxr3pqR79SQGuL8Oq0YPP2euhBWe7dCcpnb7N5-kEjX8dUoIZKBP6rrc5HQBwyufUbsdzs1Mrzv-2ABk2e-HGTI4qJcGHkdUqSIcM7Du0JIynlCR6-oMEIt10-tQM1_5KFhndISFSatjOMnt7Rm37ZHSnwbONgEg34Vby0LpR5E6EUycThJD9sg7BkoUjTikWmSEnB7KmZlLdnRMDdUcJhrJGzwRU46v1Vxbe8o5oyK44QjCfkzS"
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+
+                <!-- overlay -->
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+
+                <!-- LEFT PANEL (ONLY FEATURES) -->
+                <div
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-5">
+                    <!-- item -->
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="zap" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          22kW High Power
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Rapid AC charging performance
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="layers" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Integrated Design
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Compact all-in-one unit
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="shield" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Full Protection
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Over-voltage & safety systems
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start feature-item">
+                      <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
+                        <i data-lucide="mic" class="w-4 h-4 text-brand-primary"></i>
+                      </div>
+                      <div>
+                        <p class="text-white text-sm font-semibold">
+                          Alexa Compatible
+                        </p>
+                        <p class="text-white/50 text-xs">
+                          Voice control support
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- BOTTOM CONTENT -->
+              <div class="p-6">
+                <h3 class="text-2xl font-black text-white mb-2">
+                  Picker Series (Portable Chargers)
+                </h3>
+
+                <p class="text-white/50 text-sm">
+                  Charging on the go with our reliable and adjustable portable
+                  EV chargers.
+                </p>
+
+                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                  Inquire
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section" id="testimonials">
+      <div class="testimonial-container">
+        <!-- LEFT VIDEO -->
+        <div class="testimonial-video">
+          <video preload="auto" loop="" muted="" playsinline="" class="fit-cover align-default nectar-lazy-video loaded"
+            style="visibility: visible">
+            <source
+              data-nectar-video-src="https://themenectar.com/salient/wp-content/uploads/sites/4/2022/07/studio-5.mp4"
+              type="video/mp4" src="https://themenectar.com/salient/wp-content/uploads/sites/4/2022/07/studio-5.mp4" />
+          </video>
+        </div>
+
+        <!-- RIGHT TESTIMONIALS -->
+        <div class="testimonial-slider">
+          <div class="testimonial-track">
+            <!-- CARD -->
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "As a commercial property owner, I was looking for a trustworthy EV charging solution. Rudved EV
+                provided us with high-quality DC chargers for our parking facility. The product performance and
+                after-sales support are excellent. I highly recommend them!"
+              </p>
+
+              <div class="testimonial-user ">
+                <!-- <img src="https://i.pravatar.cc/80?img=1" alt="client" /> -->
+
+                <div class="flex gap-2">
+                  <h4>Ankit Mehra ,</h4>
+                  <span>Andheri, Mumbai</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "I’ve had my Rudved EV home charger for 6 months now, and it’s been smooth sailing. The unit is compact,
+                efficient, and blends well with my parking setup. Plus, being a Made-in-India product adds to the
+                pride!"
+              </p>
+
+              <div class="testimonial-user">
+                <!-- <img src="https://i.pravatar.cc/80?img=2" alt="client" /> -->
+
+                <div class="flex gap-2">
+                  <h4>Sunita Patil , </h4>
+                  <span>Thane</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "Rudved EV is a game-changer for local EV owners. We’ve installed their DC fast chargers in our office
+                premises, and it’s been a big hit among employees. The speed and reliability are top-notch!"
+              </p>
+
+              <div class="testimonial-user">
+                <!-- <img src="https://i.pravatar.cc/80?img=3" alt="client" /> -->
+
+                <div class="flex gap-2">
+                  <h4>Rohit Shetty ,</h4>
+                  <span>Borivali, Mumbai</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "Choosing Rudved EV for our housing society was the best decision. Their team guided us through the
+                right charger setup and even trained our maintenance staff. Great service and trustworthy products!"
+              </p>
+
+              <div class="testimonial-user">
+                <!-- <img src="https://i.pravatar.cc/80?img=4" alt="client" /> -->
+
+                <div class="flex gap-2">
+                  <h4>Neha Kulkarni , </h4>
+                  <span>Dadar, Mumbai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- LinkedIn Updates Section -->
+    <section class="mx-auto max-w-7xl px-6 py-20" id="linkindin">
+      <div class="mb-16 flex items-end justify-between">
+        <div>
+          <div
+            class="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] text-brand-primary uppercase">
+            Industry Pulse
+          </div>
+          <h2 class="hero-title font-headline text-5xl font-black tracking-tight">
+            Corporate Insights.
+          </h2>
+        </div>
+        <a class="hidden sm:flex items-center gap-3 rounded-lg bg-[#0077b5] px-8 py-4 text-xs font-black uppercase tracking-widest transition-all hover:brightness-110"
+          href="https://linkedin.com" target="_blank">
+          <span class="material-symbols-outlined text-sm">share</span>
+          Follow on LinkedIn
+        </a>
+      </div>
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div class="flex flex-col gap-6">
+          <div class="glass-card rounded-2xl p-8 transition-all hover:bg-white/5 border-l-4 border-brand-primary">
+            <div class="mb-6 flex items-center justify-between">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-white/30">LinkedIn • 2h ago</span>
+              <span class="material-symbols-outlined text-[#0077b5]">alternate_email</span>
+            </div>
+            <p class="text-lg leading-relaxed text-white/80">
+              Excited to announce our new partnership with national highway
+              developers to install 500+ ultra-fast chargers by end of 2025!
+              #EVRevolution #Sustainability
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-8 transition-all hover:bg-white/5 border-l-4 border-brand-secondary">
+            <div class="mb-6 flex items-center justify-between">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-white/30">LinkedIn • 1d ago</span>
+              <span class="material-symbols-outlined text-[#0077b5]">alternate_email</span>
+            </div>
+            <p class="text-lg leading-relaxed text-white/80">
+              Our CEO @EVVolt_CEO spoke at the GreenTech Summit today about
+              the critical need for grid intelligence in the EV space. Watch
+              the highlights here.
+            </p>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 aspect-video lg:aspect-auto">
+          <img alt="Speaker at conference" class="h-full w-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPs4uqDs-53WiBE3N95lKmu82HIhLMmuB8d-BuhXwvPQ_h8h6edtn9gHpBnnWG3TJ15kDaFLj8qsTIP9aZ3LxhfX3sapfYT6wRI6RHCANWUV7KWDH6kF1H5jFZNmLQ0iSqbNZb9dfuBKL7NKJl13QxLrMtdScOA9_WhheJc6UKlIQPOrauYYZsRqM1dyQFBRt_rNv6fF-Qt9VmuG381b3PDn6KfoFORk4KuywwYLYxo0nvbQINAvMIX6rxa-jstuT0uK2Y_tjWYqh7" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-10">
+            <p class="text-sm font-bold uppercase tracking-widest">
+              Highlight: GreenTech Summit 2024
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <!-- Calculator Section -->
+    <section class="mx-auto max-w-7xl px-6 py-20" id="calculator">
+      <div class="grid grid-cols-1 gap-20 lg:grid-cols-2">
+        <!-- LEFT CONTENT -->
+        <div>
+          <h2 class="hero-title mb-8 font-headline text-6xl font-black leading-tight">
+            EV vs Fuel <br />
+            <span class="text-primary">Cost Calculator</span>
+          </h2>
+
+          <p class="mb-12 text-xl text-white/50">
+            Compare your daily fuel expenses with EV charging costs and see
+            how much you can save.
+          </p>
+
+          <div class="space-y-6 text-white/60">
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">bolt</span>
+              <p>Electricity is cheaper than petrol/diesel</p>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">electric_car</span>
+              <p>EV maintenance cost is lower</p>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary">savings</span>
+              <p>Save money every month</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CALCULATOR -->
+        <div class="glass-card rounded-3xl p-10 lg:p-14 space-y-6">
+          <div>
+            <label class="text-xs text-white">Daily Distance (km)</label>
+            <input id="distance" type="number" placeholder="Enter km"
+              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+          </div>
+
+          <div>
+            <label class="text-xs text-white">Petrol Price (₹/L)</label>
+            <input id="petrolPrice" type="number" placeholder="e.g. 100"
+              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+          </div>
+
+          <div>
+            <label class="text-xs text-white">Vehicle Mileage (km/L)</label>
+            <input id="mileage" type="number" placeholder="e.g. 15"
+              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+          </div>
+
+          <div>
+            <label class="text-xs text-white">Electricity Cost (₹/kWh)</label>
+            <input id="electricCost" type="number" placeholder="e.g. 8"
+              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+          </div>
+
+          <div>
+            <label class="text-xs text-white">EV Efficiency (km/kWh)</label>
+            <input id="evEfficiency" type="number" placeholder="e.g. 6"
+              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+          </div>
+
+          <button onclick="calculateCost()" class="w-full rounded-xl bg-primary py-4 text-xs font-bold uppercase">
+            Calculate Savings
+          </button>
+
+          <!-- RESULT -->
+          <div id="result" class="text-white mt-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us Form -->
+    <section id="contactModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black backdrop-blur-sm">
+      <div class="relative w-full max-w-5xl mx-4">
+        <!-- CLOSE BUTTON -->
+        <button id="closeContact" class="absolute top-4 right-4 text-white text-2xl">
+          ✕
+        </button>
+
+        <!-- YOUR FORM CONTENT -->
+        <div class="rounded-3xl p-10 lg:p-14 max-h-[90vh] overflow-y-auto">
+          <!-- example -->
+          <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+
+          <div class="glass-card rounded-3xl p-10 lg:p-14">
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div class="space-y-2">
+                  <label class="text-[10px] font-black uppercase tracking-widest text-white">
+                    Full Name
+                  </label>
+
+                  <input type="text" placeholder="John Doe"
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none" />
+                </div>
+
+                <div class="space-y-2">
+                  <label class="text-[10px] font-black uppercase tracking-widest text-white">
+                    Work Email
+                  </label>
+
+                  <input type="email" placeholder="john@company.com"
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-black uppercase tracking-widest text-white">
+                  Interest Area
+                </label>
+
+                <select
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none">
+                  <option class="bg-black text-white">
+                    Commercial Fleet Infrastructure
+                  </option>
+                  <option class="bg-black text-white">
+                    Residential Property Network
+                  </option>
+                  <option class="bg-black text-white">
+                    Highway Hyper-Charging Station
+                  </option>
+                  <option class="bg-black text-white">
+                    Software Licensing
+                  </option>
+                </select>
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-black uppercase tracking-widest text-white">
+                  Project Summary
+                </label>
+
+                <textarea rows="4" placeholder="Tell us about your infrastructure goals..."
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none"></textarea>
+              </div>
+
+              <button onclick="sendMail()" type="submit"
+                class="w-full rounded-xl bg-primary py-5 text-xs font-black uppercase tracking-[0.2em] transition hover:bg-primary-dark">
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-900 border-t border-white/10 pt-20 pb-8 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16">
+        <!-- Brand -->
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-3 mb-6">
+            <img src="assets/DP-logo.PNG" class="w-10 h-10 scale-[2]" />
+
+            <span class="text-lg font-semibold"> DP Power Solutions </span>
+          </div>
+
+          <p class="text-sm text-white/40 max-w-sm leading-relaxed mb-10">
+            Engineered for reliability, designed for speed. DP Power Solutions
+            is pioneering the global standard for EV charging infrastructure.
+          </p>
+
+          <div class="flex gap-4">
+            <a
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-white/40 hover:bg-primary hover:text-white transition">
+              <span class="material-symbols-outlined">share</span>
+            </a>
+
+            <a
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-white/40 hover:bg-primary hover:text-white transition">
+              <span class="material-symbols-outlined">mail</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="lg:col-span-2">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-white mb-8">
+            Resources
+          </h4>
+
+          <ul class="space-y-4 text-sm text-white/40">
+            <li>
+              <a class="hover:text-primary transition">Network Status</a>
+            </li>
+            <li>
+              <a class="hover:text-primary transition">Safety Protocols</a>
+            </li>
+            <li><a class="hover:text-primary transition">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="lg:col-span-2">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-white mb-8">
+            Company
+          </h4>
+
+          <ul class="space-y-4 text-sm text-white/40">
+            <li><a class="hover:text-primary transition">Global Fleet</a></li>
+            <li>
+              <a class="hover:text-primary transition">Press Inquiries</a>
+            </li>
+            <li>
+              <a class="hover:text-primary transition">Sustainability</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact info -->
+        <div class="lg:col-span-3">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-white mb-8">
+            Contact
+          </h4>
+
+          <ul class="space-y-4 text-sm text-white/50">
+            <li class="hover:text-primary flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">call</span>
+              +91 98765 43210
+            </li>
+
+            <li class="hover:text-primary flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              contact@dppowersolutions.com
+            </li>
+
+            <li class="hover:text-primary flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary">location_on</span>
+              Mumbai, India
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Footer -->
+
+      <div
+        class="mt-20 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-white/30">
+        <p class="m-auto">© 2024 DP Power Solutions. All rights reserved.</p>
+
+        <!-- <div class="flex gap-8">
+            <a class="hover:text-white transition">Privacy</a>
+            <a class="hover:text-white transition">Terms</a>
+            <a class="hover:text-white transition">Security</a>
+          </div> -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- SWIPER -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
