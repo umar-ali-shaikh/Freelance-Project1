@@ -275,44 +275,122 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+gsap.registerPlugin();
+
+const track = document.getElementById("testimonialTrack");
+const cards = gsap.utils.toArray("#testimonialTrack > div");
+
+let currentIndex = 0;
+let autoSlide;
+
 // ===============================
-// TESTIMONIAL SCROLL (GSAP + PIN)
+// GO TO SLIDE
 // ===============================
-gsap.registerPlugin(ScrollTrigger);
+function goToSlide(index) {
+  currentIndex = index;
 
-const track = document.querySelector(".testimonial-track");
-const slider = document.querySelector(".testimonial-slider");
+  gsap.to(track, {
+    xPercent: -(currentIndex * 100),
+    duration: 0.8,
+    ease: "power3.inOut"
+  });
+}
 
-let mm = gsap.matchMedia();
+// ===============================
+// AUTO SLIDE
+// ===============================
+function startAutoSlide() {
+  stopAutoSlide();
 
-mm.add(
-  {
-    isMobile: "(max-width: 576px)",
-    isDesktop: "(min-width: 577px)",
-  },
-  (context) => {
+  autoSlide = setInterval(() => {
+    currentIndex++;
 
-    const { isMobile } = context.conditions;
+    if (currentIndex >= cards.length) {
+      currentIndex = 0;
+    }
 
-    // Calculate scroll distance
-    const scrollHeight =
-      track.scrollHeight - slider.offsetHeight;
+    goToSlide(currentIndex);
+  }, 4000);
+}
 
-    // Animate vertical scroll
-    gsap.to(track, {
-      y: -scrollHeight,
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
 
-      scrollTrigger: {
-        trigger: isMobile ? slider : ".testimonial-container",
-        start: "top top",
-        end: () => "+=" + scrollHeight,
-        scrub: true,
-        pin: true
-      },
-    });
+startAutoSlide();
 
+// ===============================
+// BUTTONS
+// ===============================
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => {
+    currentIndex =
+      currentIndex < cards.length - 1
+        ? currentIndex + 1
+        : 0;
+
+    goToSlide(currentIndex);
+    startAutoSlide();
+  });
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
+    currentIndex =
+      currentIndex > 0
+        ? currentIndex - 1
+        : cards.length - 1;
+
+    goToSlide(currentIndex);
+    startAutoSlide();
+  });
+}
+
+// ===============================
+// TOUCH SWIPE
+// ===============================
+let startX = 0;
+let endX = 0;
+
+track.addEventListener("touchstart", (e) => {
+  stopAutoSlide();
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchmove", (e) => {
+  endX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", () => {
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      currentIndex =
+        currentIndex < cards.length - 1
+          ? currentIndex + 1
+          : 0;
+    } else {
+      currentIndex =
+        currentIndex > 0
+          ? currentIndex - 1
+          : cards.length - 1;
+    }
+
+    goToSlide(currentIndex);
   }
-);
+
+  startAutoSlide();
+});
+
+// ===============================
+// PAUSE ON HOVER (DESKTOP)
+// ===============================
+track.addEventListener("mouseenter", stopAutoSlide);
+track.addEventListener("mouseleave", startAutoSlide);
 
 
 
@@ -343,13 +421,15 @@ function calculateCost() {
 // ===============================
 // CONTACT MODAL (POPUP OPEN/CLOSE)
 // ===============================
-const openBtn = document.getElementById('openContact');
+const openBtns = document.querySelectorAll('.openContact');
 const closeBtn = document.getElementById('closeContact');
 const modal = document.getElementById('contactModal');
 
-openBtn.addEventListener('click', () => {
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
+openBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  });
 });
 
 closeBtn.addEventListener('click', () => {
@@ -409,90 +489,112 @@ async function sendMail() {
 // ===============================
 const container = document.querySelector(".productsection");
 
-let lastScroll = window.scrollY;
-let scrollX = 0;
+if (container) {
+  let lastScroll = window.scrollY;
+  let scrollX = 0;
 
-// ===============================
-// DESKTOP SCROLL → HORIZONTAL
-// ===============================
-window.addEventListener("scroll", () => {
-  const rect = container.getBoundingClientRect();
+  const isMobile = window.innerWidth <= 768;
 
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    let currentScroll = window.scrollY;
-    let diff = currentScroll - lastScroll;
-
-    scrollX += diff * 1.5;
-
+  // ===============================
+  // UPDATE POSITION
+  // ===============================
+  function updateScroll() {
     const maxScroll = container.scrollWidth - container.clientWidth;
+
     scrollX = Math.max(0, Math.min(scrollX, maxScroll));
 
     container.style.transform = `translateX(${-scrollX}px)`;
   }
 
-  lastScroll = window.scrollY;
-});
+  // ===============================
+  // DESKTOP: VERTICAL SCROLL → HORIZONTAL
+  // ===============================
+  if (!isMobile) {
+    window.addEventListener("scroll", () => {
+      const rect = container.getBoundingClientRect();
 
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const currentScroll = window.scrollY;
+        const diff = currentScroll - lastScroll;
 
-// ===============================
-// TOUCH (MOBILE)
-// ===============================
-let startX = 0;
-let isTouching = false;
+        scrollX += diff * 1.5;
 
-container.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-  isTouching = true;
-});
+        updateScroll();
+        lastScroll = currentScroll;
+      }
+    });
+  }
 
-container.addEventListener("touchmove", (e) => {
-  if (!isTouching) return;
+  // ===============================
+  // MOBILE: TOUCH SWIPE ONLY
+  // ===============================
+  let startX = 0;
+  let isTouching = false;
 
-  e.preventDefault();
+  container.addEventListener(
+    "touchstart",
+    (e) => {
+      startX = e.touches[0].clientX;
+      isTouching = true;
+    },
+    { passive: true }
+  );
 
-  let currentX = e.touches[0].clientX;
-  let diff = startX - currentX;
+  container.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isTouching) return;
 
-  scrollX += diff * 1.2;
+      const currentX = e.touches[0].clientX;
+      const diff = startX - currentX;
 
-  updateScroll();
+      scrollX += diff * 1.2;
 
-  startX = currentX;
-}, { passive: false });
+      updateScroll();
 
-container.addEventListener("touchend", () => {
-  isTouching = false;
-});
+      startX = currentX;
+    },
+    { passive: true }
+  );
 
+  container.addEventListener("touchend", () => {
+    isTouching = false;
+  });
 
-// ===============================
-// MOUSE DRAG (DESKTOP TOUCH FEEL)
-// ===============================
-let isDragging = false;
+  // ===============================
+  // DESKTOP: MOUSE DRAG
+  // ===============================
+  let isDragging = false;
 
-container.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.clientX;
-  container.style.cursor = "grabbing";
-});
+  container.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    container.style.cursor = "grabbing";
+  });
 
-window.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
 
-  let currentX = e.clientX;
-  let diff = startX - currentX;
+    const currentX = e.clientX;
+    const diff = startX - currentX;
 
-  scrollX += diff * 1.2;
+    scrollX += diff * 1.2;
 
-  updateScroll();
+    updateScroll();
 
-  startX = currentX;
-});
+    startX = currentX;
+  });
 
-window.addEventListener("mouseup", () => {
-  isDragging = false;
-  container.style.cursor = "grab";
-});
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+    container.style.cursor = "grab";
+  });
+
+  // Prevent image dragging while dragging cards
+  container.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+  });
+}
 
 
 // ===============================
