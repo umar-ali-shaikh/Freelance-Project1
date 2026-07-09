@@ -605,3 +605,39 @@ function updateScroll() {
   scrollX = Math.max(0, Math.min(scrollX, maxScroll));
   container.style.transform = `translateX(${-scrollX}px)`;
 }
+
+
+// Blog Section slider
+const blogSwiper = new Swiper(".blogSwiper", {
+  loop: true,
+  speed: 800,
+
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+
+  grabCursor: true,
+  allowTouchMove: true,
+
+  slidesPerView: 1,
+  spaceBetween: 20,
+
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 25,
+    },
+
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+});

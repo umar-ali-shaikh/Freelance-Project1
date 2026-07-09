@@ -13,6 +13,7 @@
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Swiper -->
@@ -122,11 +123,11 @@
       </a>
 
       <!-- Nav LINKS -->
-      <div class="hidden lgs:flex items-center gap-10 text-[14px] font-normal">
-        <a href="#about" class="hover:text-primary transition">About Us</a>
+      <div class="hidden lgs:flex items-center gap-10 text-[16px] font-normal">
         <a href="#products" class="hover:text-primary transition">Products</a>
-        <a href="#blog" class="hover:text-primary transition">Blog</a>
         <a href="#calculator" class="hover:text-primary transition">Calculator</a>
+        <a href="#about" class="hover:text-primary transition">About Us</a>
+        <a href="#blog" class="hover:text-primary transition">Blog</a>
         <a href="#contact-us" class="hover:text-primary transition openContact">Contact Us</a>
       </div>
 
@@ -163,27 +164,27 @@
           <span>Home</span>
         </a> -->
 
-        <a href="#about" class="sidebar-link">
+        <a href="index.html#about" class="sidebar-link">
           <i data-lucide="building-2"></i>
           <span>About Us</span>
         </a>
 
-        <a href="#products" class="sidebar-link">
+        <a href="index.html#products" class="sidebar-link">
           <i data-lucide="battery-charging"></i>
           <span>Products</span>
         </a>
 
-        <a href="#blog" class="sidebar-link">
+        <a href="index.html#blog" class="sidebar-link">
           <i data-lucide="newspaper"></i>
           <span>Blogs</span>
         </a>
 
-        <a href="#calculator" class="sidebar-link">
+        <a href="index.html#calculator" class="sidebar-link">
           <i data-lucide="calculator"></i>
           <span>EV Calculator</span>
         </a>
 
-        <a href="#contact-us" class="sidebar-link openContact">
+        <a href="index.html#contact-us" class="sidebar-link openContact">
           <i data-lucide="phone-call"></i>
           <span>Contact Us</span>
         </a>
@@ -192,13 +193,13 @@
     </div>
   </header>
 
-  <main>
+  <main class="overflow-x-hidden">
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center pt-32 pb-20 bg-cover bg-center relative" id="hero">
       <!-- style="background-image: url(&quot;./assets/hero-image1.jpg&quot;)"> -->
 
       <!-- Dark Overlay -->
-      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      <div class="absolute inset-0 bg-black/30 z-10"></div>
       <div class="absolute inset-0 w-full h-full overflow-hidden">
         <video class="w-full h-full object-cover" src="./assets/IMG_6432.mp4" autoplay muted loop playsinline>
         </video>
@@ -346,8 +347,7 @@
             <div
               class="group min-w-[300px] md:min-w-[340px] lg:min-w-[360px] snap-start relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg">
               <div class="relative h-[350px] overflow-hidden">
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC6hV_wM0sI1IUEpdEH2X0zmn5IMFXpXBzt5qR6SYllMyZxwv7B_xJQkmaBTjaz__h9MRgXR30qLi1YaHG0tIZs23zzGyL4xBHprp7Jh03Ez7tgx338aYPD-VzZVohdrkqkmY1xaYqFnn4Ja-fTNZhDFEm9FfkcpZubwyQ38taDdyYz6Ql-coG7RSsXTODtavUG8O_FHIR_pOJAICoT1cnyJlmN-MjFZSUFxJjau7FGL1G65eJ4w2LaHJPFb4yLsHfimRFtEysWsjN"
+                <img src="assets/Product1.JPG"
                   class="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
 
                 <!-- overlay -->
@@ -723,7 +723,6 @@
         <div class="grid lg:grid-cols-2 gap-12 items-center">
 
           <!-- LEFT VIDEO -->
-          <!-- LEFT VIDEO -->
           <div class="relative overflow-hidden rounded-3xl h-[350px] md:h-[500px]">
 
             <iframe class="absolute inset-0 w-full h-full rounded-3xl"
@@ -762,7 +761,7 @@
           <div>
 
             <span class="inline-flex px-4 py-2 rounded-full border border-white/10 text-sm text-gray-300 mb-5">
-              Testimonials
+              Customer Reviews
             </span>
 
             <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
@@ -868,11 +867,12 @@
       </div>
     </section>
 
-    <section id="blog" class="py-24 bg-black">
-      <div class="max-w-7xl mx-auto px-6">
-
-        <!-- Header -->
+    <!-- Blog Slider -->
+    <section>
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- Heading -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
+
           <div>
             <span class="text-sky-500 uppercase tracking-[3px] text-sm font-medium">
               Latest Articles
@@ -883,191 +883,262 @@
             </h2>
           </div>
 
-          <!-- <a href="/blog"
-        class="inline-flex items-center justify-center px-8 py-4 bg-sky-600 hover:bg-sky-700 text-gray-100 rounded-xl font-semibold transition-all duration-300">
-        View All Blogs
-      </a> -->
         </div>
+        <div class="swiper blogSwiper overflow-hidden">
 
-        <!-- Blog Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="swiper-wrapper">
 
-          <!-- Blog Card -->
-          <article
-            class="group bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+            <!-- ================= BLOG 1 ================= -->
 
-            <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1593941707882-a5bac6861d75" alt=""
-                class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+            <div class="swiper-slide h-auto">
+
+              <article
+                class="group h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+
+                <div class="overflow-hidden">
+
+                  <img src="https://images.unsplash.com/photo-1593941707882-a5bac6861d75"
+                    class="w-full h-64 object-cover group-hover:scale-105 duration-500">
+
+                </div>
+
+                <div class="p-6 flex flex-col h-[270px]">
+
+                  <span class="text-sky-500 text-sm">
+                    June 2026
+                  </span>
+
+                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                    How Fast EV Chargers Are Transforming Commercial Spaces
+                  </h3>
+
+                  <p class="text-gray-300 leading-relaxed flex-1">
+                    Learn how businesses are leveraging EV charging stations to attract
+                    customers while creating new revenue opportunities.
+                  </p>
+
+                  <a href="#" class="mt-6 inline-flex items-center gap-2 text-sky-500 font-semibold">
+                    Read More
+                    <span>→</span>
+                  </a>
+
+                </div>
+
+              </article>
+
             </div>
 
-            <div class="p-6">
-              <span class="text-sky-500 text-sm">
-                June 2026
-              </span>
 
-              <h3 class="text-gray-100 text-2xl font-semibold mt-3 mb-4">
-                How Fast EV Chargers Are Transforming Commercial Spaces
-              </h3>
 
-              <p class="text-gray-100 leading-relaxed mb-5">
-                Learn how businesses are leveraging EV charging stations to
-                attract customers and create new revenue opportunities.
-              </p>
+            <!-- ================= BLOG 2 ================= -->
 
-              <a href="#" class="text-sky-500 font-semibold">
-                Read More →
-              </a>
-            </div>
-          </article>
+            <div class="swiper-slide h-auto">
 
-          <!-- Blog Card -->
-          <article
-            class="group bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+              <article
+                class="group h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
 
-            <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399" alt=""
-                class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
-            </div>
+                <div class="overflow-hidden">
 
-            <div class="p-6">
-              <span class="text-sky-500 text-sm">
-                June 2026
-              </span>
+                  <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399"
+                    class="w-full h-64 object-cover group-hover:scale-105 duration-500">
 
-              <h3 class="text-gray-100 text-2xl font-semibold mt-3 mb-4">
-                Choosing The Right EV Charging Solution
-              </h3>
+                </div>
 
-              <p class="text-gray-100 leading-relaxed mb-5">
-                Understand the key factors that matter before installing
-                EV charging infrastructure at your facility.
-              </p>
+                <div class="p-6 flex flex-col h-[270px]">
 
-              <a href="#" class="text-sky-500 font-semibold">
-                Read More →
-              </a>
-            </div>
-          </article>
+                  <span class="text-sky-500 text-sm">
+                    June 2026
+                  </span>
 
-          <!-- Blog Card -->
-          <article
-            class="group bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                    Choosing The Right EV Charging Solution
+                  </h3>
 
-            <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7" alt=""
-                class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                  <p class="text-gray-300 leading-relaxed flex-1">
+                    Discover the important factors to consider before installing EV
+                    charging infrastructure at your property.
+                  </p>
+
+                  <a href="#" class="mt-6 inline-flex items-center gap-2 text-sky-500 font-semibold">
+                    Read More
+                    <span>→</span>
+                  </a>
+
+                </div>
+
+              </article>
+
             </div>
 
-            <div class="p-6">
-              <span class="text-sky-500 text-sm">
-                June 2026
-              </span>
 
-              <h3 class="text-gray-100 text-2xl font-semibold mt-3 mb-4">
-                The Future Of Sustainable Mobility In India
-              </h3>
 
-              <p class="text-gray-100 leading-relaxed mb-5">
-                Explore the trends shaping India's EV ecosystem and
-                the role of charging infrastructure.
-              </p>
+            <!-- ================= BLOG 3 ================= -->
 
-              <a href="#" class="text-sky-500 font-semibold">
-                Read More →
-              </a>
-            </div>
-          </article>
+            <div class="swiper-slide h-auto">
 
-          <!-- Blog Card -->
-          <article
-            class="group bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+              <article
+                class="group h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
 
-            <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1593941707882-a5bac6861d75" alt=""
-                class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
-            </div>
+                <div class="overflow-hidden">
 
-            <div class="p-6">
-              <span class="text-sky-500 text-sm">
-                June 2026
-              </span>
+                  <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                    class="w-full h-64 object-cover group-hover:scale-105 duration-500">
 
-              <h3 class="text-gray-100 text-2xl font-semibold mt-3 mb-4">
-                How Fast EV Chargers Are Transforming Commercial Spaces
-              </h3>
+                </div>
 
-              <p class="text-gray-100 leading-relaxed mb-5">
-                Learn how businesses are leveraging EV charging stations to
-                attract customers and create new revenue opportunities.
-              </p>
+                <div class="p-6 flex flex-col h-[270px]">
 
-              <a href="#" class="text-sky-500 font-semibold">
-                Read More →
-              </a>
-            </div>
-          </article>
+                  <span class="text-sky-500 text-sm">
+                    June 2026
+                  </span>
 
-          <!-- Blog Card -->
-          <article
-            class="group bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                    The Future Of Sustainable Mobility In India
+                  </h3>
 
-            <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399" alt=""
-                class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
-            </div>
+                  <p class="text-gray-300 leading-relaxed flex-1">
+                    Explore how smart charging infrastructure is shaping the future of
+                    sustainable transportation across India.
+                  </p>
 
-            <div class="p-6">
-              <span class="text-sky-500 text-sm">
-                June 2026
-              </span>
+                  <a href="#" class="mt-6 inline-flex items-center gap-2 text-sky-500 font-semibold">
+                    Read More
+                    <span>→</span>
+                  </a>
 
-              <h3 class="text-gray-100 text-2xl font-semibold mt-3 mb-4">
-                Choosing The Right EV Charging Solution
-              </h3>
+                </div>
 
-              <p class="text-gray-100 leading-relaxed mb-5">
-                Understand the key factors that matter before installing
-                EV charging infrastructure at your facility.
-              </p>
+              </article>
 
-              <a href="#" class="text-sky-500 font-semibold">
-                Read More →
-              </a>
-            </div>
-          </article>
+            </div> <!-- ================= BLOG 4 ================= -->
 
-          <!-- Blog Card -->
-          <article
-            class="group bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+            <div class="swiper-slide h-auto">
 
-            <div class="overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7" alt=""
-                class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+              <article
+                class="group h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+
+                <div class="overflow-hidden">
+
+                  <img src="https://images.unsplash.com/photo-1593941707882-a5bac6861d75"
+                    class="w-full h-64 object-cover group-hover:scale-105 duration-500">
+
+                </div>
+
+                <div class="p-6 flex flex-col h-[270px]">
+
+                  <span class="text-sky-500 text-sm">
+                    June 2026
+                  </span>
+
+                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                    Commercial EV Infrastructure
+                  </h3>
+
+                  <p class="text-gray-300 leading-relaxed flex-1">
+                    Discover how fast charging stations improve customer experience and
+                    create new business opportunities.
+                  </p>
+
+                  <a href="#" class="mt-6 inline-flex items-center gap-2 text-sky-500 font-semibold">
+                    Read More
+                    <span>→</span>
+                  </a>
+
+                </div>
+
+              </article>
+
             </div>
 
-            <div class="p-6">
-              <span class="text-sky-500 text-sm">
-                June 2026
-              </span>
 
-              <h3 class="text-gray-100 text-2xl font-semibold mt-3 mb-4">
-                The Future Of Sustainable Mobility In India
-              </h3>
 
-              <p class="text-gray-100 leading-relaxed mb-5">
-                Explore the trends shaping India's EV ecosystem and
-                the role of charging infrastructure.
-              </p>
+            <!-- ================= BLOG 5 ================= -->
 
-              <a href="#" class="text-sky-500 font-semibold">
-                Read More →
-              </a>
+            <div class="swiper-slide h-auto">
+
+              <article
+                class="group h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+
+                <div class="overflow-hidden">
+
+                  <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399"
+                    class="w-full h-64 object-cover group-hover:scale-105 duration-500">
+
+                </div>
+
+                <div class="p-6 flex flex-col h-[270px]">
+
+                  <span class="text-sky-500 text-sm">
+                    June 2026
+                  </span>
+
+                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                    Smart Charging Networks
+                  </h3>
+
+                  <p class="text-gray-300 leading-relaxed flex-1">
+                    Learn how connected charging stations improve monitoring,
+                    maintenance, and operational efficiency.
+                  </p>
+
+                  <a href="#" class="mt-6 inline-flex items-center gap-2 text-sky-500 font-semibold">
+                    Read More
+                    <span>→</span>
+                  </a>
+
+                </div>
+
+              </article>
+
             </div>
-          </article>
+
+
+
+            <!-- ================= BLOG 6 ================= -->
+
+            <div class="swiper-slide h-auto">
+
+              <article
+                class="group h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-sky-500/40 transition-all duration-300">
+
+                <div class="overflow-hidden">
+
+                  <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                    class="w-full h-64 object-cover group-hover:scale-105 duration-500">
+
+                </div>
+
+                <div class="p-6 flex flex-col h-[270px]">
+
+                  <span class="text-sky-500 text-sm">
+                    June 2026
+                  </span>
+
+                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                    Future Mobility Solutions
+                  </h3>
+
+                  <p class="text-gray-300 leading-relaxed flex-1">
+                    Explore how intelligent charging infrastructure is shaping the next
+                    generation of sustainable transportation.
+                  </p>
+
+                  <a href="#" class="mt-6 inline-flex items-center gap-2 text-sky-500 font-semibold">
+                    Read More
+                    <span>→</span>
+                  </a>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </div>
 
         </div>
       </div>
+
     </section>
 
     <!-- LinkedIn Updates Section
@@ -1203,18 +1274,18 @@
 
     <!-- Contact Us Form -->
     <section id="contactModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black backdrop-blur-sm">
-      <div class="relative w-full max-w-5xl mx-4">
+      <div class="relative w-full max-w-2xl mx-4">
         <!-- CLOSE BUTTON -->
         <button id="closeContact" class="absolute top-4 right-4 text-gray-100 text-2xl">
           ✕
         </button>
 
         <!-- YOUR FORM CONTENT -->
-        <div class="rounded-3xl p-10 lg:p-14 max-h-[90vh] overflow-y-auto">
+        <div class="rounded-3xl lg:p-14 max-h-[90vh] overflow-y-auto">
           <!-- example -->
           <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
 
-          <div class="glass-card rounded-3xl p-10 lg:p-14">
+          <div class="glass-card rounded-3xl p-5 lg:p-10">
             <form class="space-y-6">
               <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div class="space-y-2">
@@ -1278,121 +1349,215 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-dark-900 border-t border-white/10 pt-20 pb-8 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16">
-        <!-- Brand -->
-        <div class="lg:col-span-5">
-          <div class="flex items-center gap-3 mb-6">
-            <img src="assets/DP-logo.PNG" class="w-10 h-10 scale-[2]" />
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-dark-900 border-t border-white/10 pt-16 pb-8 px-6">
 
-            <span class="text-lg font-semibold"> DP Power Solutions </span>
+    <div class="max-w-7xl mx-auto">
+
+      <!-- TOP -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+
+        <!-- ================= BRAND ================= -->
+        <div>
+
+          <div class="flex items-center gap-4 mb-6">
+            <img src="assets/DP-logo.PNG" alt="DP Power Solutions" class="w-14 h-14 object-contain">
+
+            <div>
+              <h3 class="text-2xl font-bold text-white">
+                DP Power Solutions
+              </h3>
+            </div>
           </div>
 
-          <p class="text-sm text-gray-100 max-w-sm leading-relaxed mb-10">
-            Engineered for reliability, designed for speed. DP Power Solutions
-            is pioneering the global standard for EV charging infrastructure.
+          <p class="text-gray-300 leading-8 max-w-md">
+            Engineered for reliability and designed for speed.
+            DP Power Solutions delivers smart, scalable EV charging
+            infrastructure for residential, commercial and industrial applications.
           </p>
 
-          <div class="flex gap-4">
-            <a
-              class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-100 hover:bg-primary hover:text-gray-100 transition">
-              <span class="material-symbols-outlined">share</span>
-            </a>
+          <!-- Social -->
+          <div class="mt-10">
 
-            <a
-              class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-100 hover:bg-primary hover:text-gray-100 transition">
-              <span class="material-symbols-outlined">mail</span>
-            </a>
+            <h4 class="text-xs uppercase tracking-[0.2em] text-white mb-5">
+              Let's Connect
+            </h4>
+
+            <div class="flex gap-4">
+
+              <a href="#"
+                class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+                <i class="fab fa-linkedin-in text-white"></i>
+              </a>
+
+              <a href="#"
+                class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+                <i class="fab fa-instagram text-white"></i>
+              </a>
+
+              <a href="#"
+                class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+                <i class="fab fa-facebook-f text-white"></i>
+              </a>
+
+            </div>
+
           </div>
+
         </div>
 
-        <!-- Social Media -->
-        <div class="lg:col-span-2">
-          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-100 mb-8">
-            Social Media
+        <!-- ================= QUICK LINKS ================= -->
+        <div>
+
+          <h4 class="text-xs uppercase tracking-[0.2em] text-white mb-8">
+            Quick Links
           </h4>
 
-          <ul class="space-y-4 text-sm text-gray-100 cursor-pointer">
-            <li>
-              <a class="hover:text-primary transition">linkindin</a>
-            </li>
-            <li>
-              <a class="hover:text-primary transition">Instagram</a>
-            </li>
-            <li><a class="hover:text-primary transition">Facebook</a></li>
-          </ul>
-        </div>
+          <ul class="space-y-5 text-gray-300">
 
-        <!-- Company -->
-        <div class="lg:col-span-2">
-          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-100 mb-8 ">
-            Manu
-          </h4>
-
-          <ul class="space-y-4 text-sm text-gray-100 cursor-pointer">
-            <li><a class="hover:text-primary transition">About Us</a></li>
             <li>
-              <a class="hover:text-primary transition">Products</a>
-            </li>
-            <li>
-              <a class="hover:text-primary transition">Blog</a>
-            </li>
-            <li>
-              <a class="hover:text-primary transition">Calculator</a>
-            </li>
-            <li>
-              <a class="hover:text-primary transition openContact">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Contact info -->
-        <div class="lg:col-span-3">
-          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-100 mb-8">
-            Contact
-          </h4>
-
-          <ul class="space-y-4 text-sm text-gray-100 cursor-pointer">
-            <li>
-              <a class="hover:text-primary flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">call</span>
-                +91 98765 43210
+              <a href="#about" class="hover:text-primary transition">
+                About Us
               </a>
             </li>
 
             <li>
-              <a class="hover:text-primary flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">mail</span>
-                contact@dppowersolutions.com
+              <a href="#products" class="hover:text-primary transition">
+                Products
               </a>
             </li>
 
             <li>
-              <a class="hover:text-primary flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">location_on</span>
-                Mumbai, India
+              <a href="#calculator" class="hover:text-primary transition">
+                Calculator
               </a>
             </li>
+
+            <li>
+              <a href="#blog" class="hover:text-primary transition">
+                Blog
+              </a>
+            </li>
+
+            <li>
+              <a class="hover:text-primary transition openContact">
+                Contact Us
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-primary transition">
+                Safety Regulations
+              </a>
+            </li>
+
           </ul>
+
         </div>
+
+        <!-- ================= CONTACT ================= -->
+        <div>
+
+          <h4 class="text-xs uppercase tracking-[0.2em] text-white mb-8">
+            Let's Connect
+          </h4>
+
+          <div class="space-y-6">
+
+            <div class="flex items-start gap-4">
+
+              <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+
+                <span class="material-symbols-outlined text-primary">
+                  call
+                </span>
+
+              </div>
+
+              <div>
+
+                <p class="text-gray-400 text-sm">
+                  Phone
+                </p>
+
+                <p class="text-white">
+                  +91 98765 43210
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="flex items-start gap-4">
+
+              <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+
+                <span class="material-symbols-outlined text-primary">
+                  mail
+                </span>
+
+              </div>
+
+              <div>
+
+                <p class="text-gray-400 text-sm">
+                  Email
+                </p>
+
+                <p class="text-white break-all">
+                  contact@dppowersolutions.com
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="flex items-start gap-4">
+
+              <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+
+                <span class="material-symbols-outlined text-primary">
+                  location_on
+                </span>
+
+              </div>
+
+              <div>
+
+                <p class="text-gray-400 text-sm">
+                  Address
+                </p>
+
+                <p class="text-white">
+                  Mumbai, Maharashtra, India
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- Bottom Footer -->
+      <!-- ================= BOTTOM ================= -->
 
-      <div
-        class="mt-20 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-100/30">
-        <p class="m-auto">© 2024 DP Power Solutions. All rights reserved.</p>
+      <div class="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-4">
 
-        <!-- <div class="flex gap-8">
-            <a class="hover:text-gray-100 transition">Privacy</a>
-            <a class="hover:text-gray-100 transition">Terms</a>
-            <a class="hover:text-gray-100 transition">Security</a>
-          </div> -->
+        <p class="text-gray-400 text-sm">
+          © 2026 DP Power Solutions. All Rights Reserved.
+        </p>
+
+
       </div>
+
     </div>
+
   </footer>
+
+
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
