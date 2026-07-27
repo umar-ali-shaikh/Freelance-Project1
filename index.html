@@ -66,23 +66,23 @@
   <div id="cursor-dot"></div>
 
   <!-- intro section -->
-  <section class="intro fixed top-0 left-0 w-full h-[100vh] z-[9999] bg-black flex items-center justify-center">
+  <!-- <section class="intro fixed top-0 left-0 w-full h-[100vh] z-[9999] bg-black flex items-center justify-center">
     <div class="loader-wrap relative w-full h-full flex items-center justify-center overflow-hiddden">
-      <!-- SVG WITH CLIP -->
+      SVG WITH CLIP
       <svg class="absolute top-0 left-0 w-full h-[120vh]" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-        <!-- CLIP PATH -->
+        CLIP PATH
         <defs>
           <clipPath id="clip">
             <rect x="0" y="0" width="1000" height="1000" />
           </clipPath>
         </defs>
 
-        <!-- WAVE -->
+        WAVE
         <path id="loaderPath" d="M0,200 C250,100 750,100 1000,200 L1000,0 L0,0 Z" fill="black" clip-path="url(#clip)">
         </path>
       </svg>
 
-      <!-- TEXT -->
+      TEXT
       <div class="loader-wrap-heading flex flex-col gap-3 relative z-10">
         <div class="load-text flex gap-2 text-4xl md:text-6xl font-bold text-gray-100">
           <span>D</span>
@@ -106,7 +106,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- TopNavBar -->
   <header>
@@ -805,13 +805,13 @@
       </div>
     </section>
 
-    <section id="testimonials" class="py-24 bg-black">
+    <section id="testimonials" class="py-16 md:py-24 bg-black">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           <!-- LEFT VIDEO -->
-          <div class="relative overflow-hidden rounded-3xl h-[350px] md:h-[500px]">
+          <div class="relative w-full min-w-0 overflow-hidden rounded-3xl h-[350px] md:h-[500px]">
 
             <iframe class="absolute inset-0 w-full h-full rounded-3xl"
               src="https://www.youtube.com/embed/MaJYmMTgFCM?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist=MaJYmMTgFCM&disablekb=1&fs=0"
@@ -824,21 +824,23 @@
 
             <!-- Floating Stats -->
             <div
-              class="absolute bottom-6 left-6 right-6 z-10 backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-5">
-              <div class="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <h3 class="text-white text-2xl font-bold">500+</h3>
-                  <p class="text-gray-300 text-sm">Installations</p>
+              class="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 z-10 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl p-2.5 sm:p-5">
+              <div class="grid grid-cols-3 gap-1 sm:gap-4 text-center">
+                <div class="min-w-0">
+                  <h3 class="text-white text-[clamp(0.95rem,4.5vw,1.5rem)] sm:text-2xl font-bold leading-tight">500+
+                  </h3>
+                  <p class="text-gray-300 text-[clamp(8.5px,2.6vw,0.875rem)] leading-tight truncate">Installations</p>
                 </div>
 
-                <div>
-                  <h3 class="text-white text-2xl font-bold">98%</h3>
-                  <p class="text-gray-300 text-sm">Satisfaction</p>
+                <div class="min-w-0">
+                  <h3 class="text-white text-[clamp(0.95rem,4.5vw,1.5rem)] sm:text-2xl font-bold leading-tight">98%</h3>
+                  <p class="text-gray-300 text-[clamp(8.5px,2.6vw,0.875rem)] leading-tight truncate">Satisfaction</p>
                 </div>
 
-                <div>
-                  <h3 class="text-white text-2xl font-bold">24/7</h3>
-                  <p class="text-gray-300 text-sm">Support</p>
+                <div class="min-w-0">
+                  <h3 class="text-white text-[clamp(0.95rem,4.5vw,1.5rem)] sm:text-2xl font-bold leading-tight">24/7
+                  </h3>
+                  <p class="text-gray-300 text-[clamp(8.5px,2.6vw,0.875rem)] leading-tight truncate">Support</p>
                 </div>
               </div>
             </div>
@@ -846,28 +848,28 @@
           </div>
 
           <!-- RIGHT CONTENT -->
-          <div>
+          <div class="w-full min-w-0">
 
             <span class="inline-flex px-4 py-2 rounded-full border border-white/10 text-sm text-gray-300 mb-5">
               Customer Reviews
             </span>
 
-            <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8">
               What Our Customers Say
             </h2>
 
             <!-- Slider Wrapper -->
             <div class="overflow-hidden">
-              <div id="testimonialTrack" class="flex transition-transform duration-500 ease-in-out">
+              <div id="testimonialTrack" class="flex transition-transform duration-500 ease-in-out gap-5 items-stretch">
 
                 <!-- CARD 1 -->
                 <div class="min-w-full">
-                  <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                  <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full">
                     <div class="text-yellow-400 text-xl mb-4">
                       ★★★★★
                     </div>
 
-                    <p class="text-gray-300 text-lg leading-8 mb-8">
+                    <p class="text-gray-300 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8 ">
                       As a commercial property owner, I was looking for a
                       trustworthy EV charging solution. Rudved EV provided us with
                       high-quality DC chargers and excellent support.
@@ -886,12 +888,12 @@
 
                 <!-- CARD 2 -->
                 <div class="min-w-full">
-                  <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                  <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full">
                     <div class="text-yellow-400 text-xl mb-4">
                       ★★★★★
                     </div>
 
-                    <p class="text-gray-300 text-lg leading-8 mb-8">
+                    <p class="text-gray-300 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8">
                       I’ve had my Rudved EV charger for 6 months now and it's been
                       smooth sailing. Compact, efficient and reliable.
                     </p>
@@ -909,12 +911,12 @@
 
                 <!-- CARD 3 -->
                 <div class="min-w-full">
-                  <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                  <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full">
                     <div class="text-yellow-400 text-xl mb-4">
                       ★★★★★
                     </div>
 
-                    <p class="text-gray-300 text-lg leading-8 mb-8">
+                    <p class="text-gray-300 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8">
                       We installed Rudved EV fast chargers in our office premises
                       and employees love the speed and reliability.
                     </p>

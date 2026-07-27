@@ -121,52 +121,52 @@ window.addEventListener("resize", () => {
 // ===============================
 // INTRO LOADER ANIMATION (GSAP)
 // ===============================
-gsap.registerPlugin();
+// gsap.registerPlugin();
 
-const tl = gsap.timeline();
+// const tl = gsap.timeline();
 
-// Text animation on load
-tl.from(".load-text span", {
-  y: -120,
-  opacity: 0,
-  stagger: 0.06,
-  duration: 1,
-  ease: "power3.out"
-});
+// // Text animation on load
+// tl.from(".load-text span", {
+//   y: -120,
+//   opacity: 0,
+//   stagger: 0.06,
+//   duration: 1,
+//   ease: "power3.out"
+// });
 
 
-// ===============================
-// PAGE LOAD EXIT ANIMATION
-// ===============================
-window.addEventListener("load", () => {
+// // ===============================
+// // PAGE LOAD EXIT ANIMATION
+// // ===============================
+// window.addEventListener("load", () => {
 
-  const exitTl = gsap.timeline();
+//   const exitTl = gsap.timeline();
 
-  exitTl
-    .to({}, { duration: 0.3 }) // small delay
+//   exitTl
+//     .to({}, { duration: 0.3 }) // small delay
 
-    // SVG wave animation
-    .to("#loaderPath", {
-      attr: {
-        d: "M0,1000 C200,850 800,850 1000,1000 L1000,0 L0,0 Z"
-      },
-      duration: 1.4,
-      ease: "power3.inOut"
-    })
+//     // SVG wave animation
+//     .to("#loaderPath", {
+//       attr: {
+//         d: "M0,1000 C200,850 800,850 1000,1000 L1000,0 L0,0 Z"
+//       },
+//       duration: 1.4,
+//       ease: "power3.inOut"
+//     })
 
-    // Move loader up
-    .to(".intro", {
-      y: "-110%",
-      duration: 1.2,
-      ease: "power3.inOut"
-    }, "-=0.6")
+//     // Move loader up
+//     .to(".intro", {
+//       y: "-110%",
+//       duration: 1.2,
+//       ease: "power3.inOut"
+//     }, "-=0.6")
 
-    // Remove from DOM
-    .set(".intro", {
-      display: "none"
-    });
+//     // Remove from DOM
+//     .set(".intro", {
+//       display: "none"
+//     });
 
-});
+// });
 
 
 // ===============================
@@ -275,6 +275,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+// testimonials
 gsap.registerPlugin();
 
 const track = document.getElementById("testimonialTrack");
@@ -286,11 +289,16 @@ let autoSlide;
 // ===============================
 // GO TO SLIDE
 // ===============================
+const GAP = 20;
+
 function goToSlide(index) {
   currentIndex = index;
 
+  const cardWidth = cards[0].offsetWidth;
+  const slideDistance = (cardWidth + GAP) * currentIndex;
+
   gsap.to(track, {
-    xPercent: -(currentIndex * 100),
+    x: -slideDistance,
     duration: 0.8,
     ease: "power3.inOut"
   });
