@@ -62,7 +62,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="grid-bg font-body">
+<body class="grid-bg font-body text-sm md:text-[15px]">
   <div id="cursor-dot"></div>
 
   <!-- intro section -->
@@ -111,19 +111,19 @@
   <!-- TopNavBar -->
   <header>
     <nav
-      class="fixed top-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-6xl glass-card text-gray-100 px-6 py-2 flex items-center justify-between rounded-full shadow-xl border border-white/10 z-50">
+      class="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-6xl glass-card text-gray-100 px-4 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between rounded-full shadow-xl border border-white/10 z-50">
 
 
       <!-- LOGO -->
-      <a href="index.html#hero" class="flex items-center gap-3">
+      <a href="index.html#hero" class="flex items-center gap-2 sm:gap-3">
         <img src="assets/DP-logo.PNG" class="w-10 h-10 object-contain scale-[1.5]" />
-        <span class="text-lg font-semibold whitespace-nowrap">
+        <span class="text-sm md:text-lg font-semibold whitespace-nowrap">
           DP Power Solutions
         </span>
       </a>
 
       <!-- Nav LINKS -->
-      <div class="hidden lgs:flex items-center gap-10 text-[16px] font-normal">
+      <div class="hidden lgs:flex items-center gap-8 text-sm lgs:text-base font-normal">
         <a href="#products" class="hover:text-primary transition">Products</a>
         <a href="#calculator" class="hover:text-primary transition">Calculator</a>
         <a href="#about" class="hover:text-primary transition">About Us</a>
@@ -146,10 +146,10 @@
 
     <!-- SIDEBAR -->
     <div id="sidebar"
-      class="fixed top-0 left-0 w-[80%] max-w-sm h-full bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl border-r border-white/10 shadow-2xl p-6 transform -translate-x-full transition duration-500 z-50">
+      class="fixed top-0 left-0 w-[80%] max-w-sm h-full bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-2xl border-r border-white/10 shadow-2xl p-4 sm:p-6 transform -translate-x-full transition duration-500 z-50">
       <!-- HEADER -->
-      <div class="flex justify-between items-center mb-10">
-        <span class="text-lg font-semibold text-gray-100/80">Menu</span>
+      <div class="flex justify-between items-center mb-6 sm:mb-10">
+        <span class="text-sm md:text-lg font-semibold text-gray-100/80">Menu</span>
 
         <button id="close-btn" class="p-2 rounded-full hover:bg-white/10 transition">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -157,7 +157,7 @@
       </div>
 
       <!-- LINKS -->
-      <div class="flex flex-col gap-4 text-[16px] font-medium">
+      <div class="flex flex-col gap-2 sm:gap-4 text-sm md:text-base font-medium">
 
         <!-- <a href="#hero" class="sidebar-link">
           <i data-lucide="house"></i>
@@ -195,7 +195,7 @@
 
   <main class="overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-32 pb-20 bg-cover bg-center relative" id="hero">
+    <section class="min-h-screen flex items-center pt-24 sm:pt-32 pb-14 sm:pb-20 bg-cover bg-center relative" id="hero">
       <!-- style="background-image: url(&quot;./assets/hero-image1.jpg&quot;)"> -->
 
       <!-- Dark Overlay -->
@@ -204,24 +204,24 @@
         <video class="w-full h-full object-cover" src="./assets/IMG_6432.mp4" autoplay muted loop playsinline>
         </video>
       </div>
-      <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 w-full relative z-10">
         <!-- Hero Text -->
         <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] text-gray-100 animate-fadeUp">
+          <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] text-gray-100 animate-fadeUp">
             Driving India’s EV Future <br />
             <span class="gradient-text block mt-3">
               Smart Charging Solutions
             </span>
           </h1>
 
-          <p class="mt-6 text-gray-100 text-lg">
+          <p class="mt-4 sm:mt-6 text-gray-100 text-sm md:text-lg">
             Delivering cost-effective, Made-in-India EV charging
             infrastructure designed for reliability, performance, and
             scalability across residential, commercial, and industrial needs.
           </p>
 
-          <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#products" class="px-8 py-3 bg-primary rounded-lg hover:bg-primary-dark transition text-center">
+          <div class="mt-6 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <a href="#products" class="px-5 sm:px-8 py-2.5 sm:py-3 text-sm bg-primary rounded-lg hover:bg-primary-dark transition text-center">
               Explore Products
             </a>
 
@@ -237,18 +237,18 @@
     <div class="section-divider"></div>
 
     <!-- About Us Section -->
-    <section class="mx-auto max-w-7xl px-6 py-20" id="about">
-      <div class="grid grid-cols-1 items-start gap-24 lg:grid-cols-2">
+    <section class="mx-auto max-w-7xl px-5 sm:px-6 py-14 sm:py-20" id="about">
+      <div class="grid grid-cols-1 items-start gap-12 sm:gap-24 lg:grid-cols-2">
         <div>
           <!-- <div class="mb-6 h-1 w-20 bg-primary"></div> -->
 
-          <h2 class="mb-8 hero-title font-headline text-5xl font-extrabold leading-tight tracking-tight">
+          <h2 class="mb-5 sm:mb-8 hero-title font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
             Driving the Future of <br />
             Green
             <span class="text-primary"> Mobility</span>
           </h2>
 
-          <p class="mb-10 text-xl leading-relaxed text-gray-100">
+          <p class="mb-6 sm:mb-10 text-sm md:text-xl leading-relaxed text-gray-100">
             DP Power Solutions is transforming India’s EV ecosystem with
             reliable, high-performance charging solutions. We design and
             deploy advanced AC/DC chargers built for Indian conditions. Our
@@ -259,22 +259,22 @@
           </p>
 
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div class="glass-card rounded-2xl p-8 border border-white/10">
-              <span class="material-symbols-outlined mb-6 text-4xl text-primary">
+            <div class="glass-card rounded-2xl p-5 sm:p-8 border border-white/10">
+              <span class="material-symbols-outlined mb-3 sm:mb-6 text-3xl sm:text-4xl text-primary">
                 bolt
               </span>
-              <h4 class="mb-2 text-xl font-bold">Peak Efficiency</h4>
+              <h4 class="mb-1.5 sm:mb-2 text-[17px] sm:text-xl font-bold">Peak Efficiency</h4>
               <p class="text-sm leading-relaxed text-gray-100">
                 Optimized power delivery through AI-driven load balancing
                 protocols.
               </p>
             </div>
 
-            <div class="glass-card rounded-2xl p-8 border border-white/10">
-              <span class="material-symbols-outlined mb-6 text-4xl text-primary">
+            <div class="glass-card rounded-2xl p-5 sm:p-8 border border-white/10">
+              <span class="material-symbols-outlined mb-3 sm:mb-6 text-3xl sm:text-4xl text-primary">
                 eco
               </span>
-              <h4 class="mb-2 text-xl font-bold">100% Sustainable</h4>
+              <h4 class="mb-1.5 sm:mb-2 text-[17px] sm:text-xl font-bold">100% Sustainable</h4>
               <p class="text-sm leading-relaxed text-gray-100">
                 Our entire network is powered by certified renewable energy
                 origins.
@@ -283,15 +283,15 @@
           </div>
         </div>
 
-        <div class="relative grid grid-cols-2 gap-6">
-          <div class="space-y-6">
+        <div class="relative grid grid-cols-2 gap-4 sm:gap-6">
+          <div class="space-y-4 sm:space-y-6">
             <div class="overflow-hidden rounded-3xl border border-white/10">
               <img alt="Solar infrastructure" class="h-80 w-full object-cover"
                 src="https://assets.technologynetworks.com/production/dynamic/images/content/376993/understanding-battery-types-components-and-the-role-of-battery-material-testing-in-development-and-376993-1280x720.webp?cb=12839931" />
             </div>
 
-            <div class="glass-card flex h-48 flex-col justify-end rounded-3xl p-8 border border-white/10">
-              <span class="material-symbols-outlined text-4xl text-primary">
+            <div class="glass-card flex h-48 flex-col justify-end rounded-3xl p-5 sm:p-8 border border-white/10">
+              <span class="material-symbols-outlined text-3xl sm:text-4xl text-primary">
                 network_check
               </span>
               <p class="mt-4 font-black uppercase tracking-widest">
@@ -300,9 +300,9 @@
             </div>
           </div>
 
-          <div class="space-y-6 pt-12">
-            <div class="glass-card flex h-48 flex-col justify-end rounded-3xl p-8 border border-white/10">
-              <span class="material-symbols-outlined text-4xl text-primary">
+          <div class="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
+            <div class="glass-card flex h-48 flex-col justify-end rounded-3xl p-5 sm:p-8 border border-white/10">
+              <span class="material-symbols-outlined text-3xl sm:text-4xl text-primary">
                 security
               </span>
               <p class="mt-4 font-black uppercase tracking-widest">
@@ -321,15 +321,15 @@
     <div class="section-divider"></div>
 
     <!-- Solutions Section -->
-    <section class="bg-white/[0.02] py-20 overflow-hidden" id="products">
-      <div class="mx-auto max-w-7xl px-6">
+    <section class="bg-white/[0.02] py-14 sm:py-20 overflow-hidden" id="products">
+      <div class="mx-auto px-5 sm:px-6">
         <!-- Heading -->
-        <div class="mb-24 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <div class="mb-12 sm:mb-24 flex flex-col justify-between gap-4 sm:gap-8 md:flex-row md:items-end">
           <div class="max-w-2xl">
-            <div class="mb-4 text-xs font-black uppercase tracking-[0.3em] text-brand-primary">
+            <div class="mb-2 sm:mb-4 text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-brand-primary">
               Our Products
             </div>
-            <h2 class="hero-title font-headline text-5xl font-black tracking-tight">
+            <h2 class="hero-title font-headline text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
               Smart EV Charging Solutions
             </h2>
           </div>
@@ -342,7 +342,7 @@
 
         <!-- Grid -->
         <div>
-          <div class="flex productsection gap-8 scroll-smooth snap-x snap-mandatory no-scrollbar px-2">
+          <div class="flex productsection gap-4 sm:gap-8 scroll-smooth snap-x snap-mandatory no-scrollbar px-0 sm:px-2">
             <!-- CARD 1 : AIR 5 (AC Charger) -->
             <div
               class="group min-w-[300px] md:min-w-[340px] lg:min-w-[360px] snap-start relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg">
@@ -355,8 +355,8 @@
 
                 <!-- LEFT PANEL -->
                 <div
-                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
-                  <ul class="space-y-5">
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-4 sm:p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-3 sm:space-y-5">
                     <!-- item -->
                     <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
                       <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
@@ -418,8 +418,8 @@
               </div>
 
               <!-- bottom content -->
-              <div class="p-6">
-                <h3 class="text-2xl font-black text-gray-100 mb-2">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-[17px] sm:text-2xl font-black text-gray-100 mb-1 sm:mb-2">
                   AIR 5 : Smart AC EV Charger
                 </h3>
                 <p class="text-gray-100 text-sm">
@@ -427,7 +427,7 @@
                   offices, hotels & public parking – 7kW / 11kW / 22kW.
                 </p>
 
-                <a href="#" class="mt-6 flex gap-2 text-brand-primary font-bold items-center">
+                <a href="#" class="mt-4 sm:mt-6 flex gap-2 text-sm text-brand-primary font-bold items-center">
                   Inquire <i data-lucide="arrow-right"></i>
                 </a>
               </div>
@@ -445,8 +445,8 @@
 
                 <!-- LEFT PANEL (ONLY FEATURES) -->
                 <div
-                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
-                  <ul class="space-y-5">
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-4 sm:p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-3 sm:space-y-5">
                     <!-- item -->
                     <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
                       <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
@@ -508,8 +508,8 @@
               </div>
 
               <!-- BOTTOM CONTENT (NAME + BUTTON ONLY) -->
-              <div class="p-6">
-                <h3 class="text-2xl font-black text-gray-100 mb-2">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-[17px] sm:text-2xl font-black text-gray-100 mb-1 sm:mb-2">
                   DOER 120kW DC Charger
                 </h3>
 
@@ -518,7 +518,7 @@
                   fleets, highways & public infrastructure.
                 </p>
 
-                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                <a href="#" class="mt-4 sm:mt-6 flex items-center gap-2 text-sm text-brand-primary font-bold hover:gap-3 transition">
                   Inquire
                   <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -537,8 +537,8 @@
 
                 <!-- LEFT PANEL (ONLY FEATURES) -->
                 <div
-                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
-                  <ul class="space-y-5">
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-4 sm:p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-3 sm:space-y-5">
                     <!-- item -->
                     <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
                       <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
@@ -600,8 +600,8 @@
               </div>
 
               <!-- BOTTOM CONTENT -->
-              <div class="p-6">
-                <h3 class="text-2xl font-black text-gray-100 mb-2">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-[17px] sm:text-2xl font-black text-gray-100 mb-1 sm:mb-2">
                   DOER 240kW DC Charger
                 </h3>
 
@@ -610,7 +610,7 @@
                   CCS2 outputs and a modular power design.
                 </p>
 
-                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                <a href="#" class="mt-4 sm:mt-6 flex items-center gap-2 text-sm text-brand-primary font-bold hover:gap-3 transition">
                   Inquire
                   <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -629,8 +629,8 @@
 
                 <!-- LEFT PANEL (ONLY FEATURES) -->
                 <div
-                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
-                  <ul class="space-y-5">
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-4 sm:p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-3 sm:space-y-5">
                     <!-- item -->
                     <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
                       <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
@@ -692,8 +692,8 @@
               </div>
 
               <!-- BOTTOM CONTENT -->
-              <div class="p-6">
-                <h3 class="text-2xl font-black text-gray-100 mb-2">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-[17px] sm:text-2xl font-black text-gray-100 mb-1 sm:mb-2">
                   DOER 480kW DC Charger
                 </h3>
 
@@ -702,7 +702,7 @@
                   logistics hubs, electric bus depots & truck charging.
                 </p>
 
-                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                <a href="#" class="mt-4 sm:mt-6 flex items-center gap-2 text-sm text-brand-primary font-bold hover:gap-3 transition">
                   Inquire
                   <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -721,8 +721,8 @@
 
                 <!-- LEFT PANEL (ONLY FEATURES) -->
                 <div
-                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
-                  <ul class="space-y-5">
+                  class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-black/90 via-black/80 to-transparent backdrop-blur-xl p-4 sm:p-6 transform -translate-x-full group-hover:translate-x-0 transition duration-500 flex flex-col justify-center">
+                  <ul class="space-y-3 sm:space-y-5">
                     <!-- item -->
                     <li class="flex gap-4 items-start feature-item border-b border-white/10 pb-3">
                       <div class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-primary/20">
@@ -784,8 +784,8 @@
               </div>
 
               <!-- BOTTOM CONTENT -->
-              <div class="p-6">
-                <h3 class="text-2xl font-black text-gray-100 mb-2">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-[17px] sm:text-2xl font-black text-gray-100 mb-1 sm:mb-2">
                   DOER Ultra Fast Charger
                 </h3>
 
@@ -794,7 +794,7 @@
                   logistics fleets, airports, ports & highway infrastructure.
                 </p>
 
-                <a href="#" class="mt-6 flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition">
+                <a href="#" class="mt-4 sm:mt-6 flex items-center gap-2 text-sm text-brand-primary font-bold hover:gap-3 transition">
                   Inquire
                   <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -805,8 +805,8 @@
       </div>
     </section>
 
-    <section id="testimonials" class="py-16 md:py-24 bg-black">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="testimonials" class="py-12 sm:py-16 md:py-24 bg-black">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
@@ -824,23 +824,23 @@
 
             <!-- Floating Stats -->
             <div
-              class="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 z-10 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl p-2.5 sm:p-5">
+              class="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 z-10 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl p-2 sm:p-5">
               <div class="grid grid-cols-3 gap-1 sm:gap-4 text-center">
                 <div class="min-w-0">
-                  <h3 class="text-white text-[clamp(0.95rem,4.5vw,1.5rem)] sm:text-2xl font-bold leading-tight">500+
+                  <h3 class="text-white text-sm sm:text-2xl font-bold leading-tight">500+
                   </h3>
-                  <p class="text-gray-300 text-[clamp(8.5px,2.6vw,0.875rem)] leading-tight truncate">Installations</p>
+                  <p class="text-gray-300 text-[11px] sm:text-sm leading-tight truncate">Installations</p>
                 </div>
 
                 <div class="min-w-0">
-                  <h3 class="text-white text-[clamp(0.95rem,4.5vw,1.5rem)] sm:text-2xl font-bold leading-tight">98%</h3>
-                  <p class="text-gray-300 text-[clamp(8.5px,2.6vw,0.875rem)] leading-tight truncate">Satisfaction</p>
+                  <h3 class="text-white text-sm sm:text-2xl font-bold leading-tight">98%</h3>
+                  <p class="text-gray-300 text-[11px] sm:text-sm leading-tight truncate">Satisfaction</p>
                 </div>
 
                 <div class="min-w-0">
-                  <h3 class="text-white text-[clamp(0.95rem,4.5vw,1.5rem)] sm:text-2xl font-bold leading-tight">24/7
+                  <h3 class="text-white text-sm sm:text-2xl font-bold leading-tight">24/7
                   </h3>
-                  <p class="text-gray-300 text-[clamp(8.5px,2.6vw,0.875rem)] leading-tight truncate">Support</p>
+                  <p class="text-gray-300 text-[11px] sm:text-sm leading-tight truncate">Support</p>
                 </div>
               </div>
             </div>
@@ -850,11 +850,11 @@
           <!-- RIGHT CONTENT -->
           <div class="w-full min-w-0">
 
-            <span class="inline-flex px-4 py-2 rounded-full border border-white/10 text-sm text-gray-300 mb-5">
+            <span class="inline-flex px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 text-[12px] sm:text-sm text-gray-300 mb-3 sm:mb-5">
               Customer Reviews
             </span>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-8">
               What Our Customers Say
             </h2>
 
@@ -864,19 +864,19 @@
 
                 <!-- CARD 1 -->
                 <div class="min-w-full">
-                  <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full">
-                    <div class="text-yellow-400 text-xl mb-4">
+                  <div class="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl h-full">
+                    <div class="text-yellow-400 text-sm sm:text-xl mb-2 sm:mb-4">
                       ★★★★★
                     </div>
 
-                    <p class="text-gray-300 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8 ">
+                    <p class="text-gray-300 text-sm sm:text-lg leading-6 sm:leading-8 mb-4 sm:mb-8 ">
                       As a commercial property owner, I was looking for a
                       trustworthy EV charging solution. Rudved EV provided us with
                       high-quality DC chargers and excellent support.
                     </p>
 
                     <div>
-                      <h4 class="text-white font-semibold text-lg">
+                      <h4 class="text-white font-semibold text-sm sm:text-lg">
                         Ankit Mehra
                       </h4>
                       <p class="text-gray-500">
@@ -888,18 +888,18 @@
 
                 <!-- CARD 2 -->
                 <div class="min-w-full">
-                  <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full">
-                    <div class="text-yellow-400 text-xl mb-4">
+                  <div class="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl h-full">
+                    <div class="text-yellow-400 text-sm sm:text-xl mb-2 sm:mb-4">
                       ★★★★★
                     </div>
 
-                    <p class="text-gray-300 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8">
+                    <p class="text-gray-300 text-sm sm:text-lg leading-6 sm:leading-8 mb-4 sm:mb-8">
                       I’ve had my Rudved EV charger for 6 months now and it's been
                       smooth sailing. Compact, efficient and reliable.
                     </p>
 
                     <div>
-                      <h4 class="text-white font-semibold text-lg">
+                      <h4 class="text-white font-semibold text-sm sm:text-lg">
                         Sunita Patil
                       </h4>
                       <p class="text-gray-500">
@@ -911,18 +911,18 @@
 
                 <!-- CARD 3 -->
                 <div class="min-w-full">
-                  <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl h-full">
-                    <div class="text-yellow-400 text-xl mb-4">
+                  <div class="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl h-full">
+                    <div class="text-yellow-400 text-sm sm:text-xl mb-2 sm:mb-4">
                       ★★★★★
                     </div>
 
-                    <p class="text-gray-300 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8">
+                    <p class="text-gray-300 text-sm sm:text-lg leading-6 sm:leading-8 mb-4 sm:mb-8">
                       We installed Rudved EV fast chargers in our office premises
                       and employees love the speed and reliability.
                     </p>
 
                     <div>
-                      <h4 class="text-white font-semibold text-lg">
+                      <h4 class="text-white font-semibold text-sm sm:text-lg">
                         Rohit Shetty
                       </h4>
                       <p class="text-gray-500">
@@ -936,7 +936,7 @@
             </div>
 
             <!-- NAVIGATION -->
-            <div class="flex items-center gap-3 mt-8">
+            <div class="flex items-center gap-3 mt-5 sm:mt-8">
 
               <button id="prevBtn"
                 class="w-12 h-12 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition">
@@ -959,16 +959,16 @@
 
     <!-- Blog Slider -->
     <section>
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <!-- Heading -->
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-6 mb-8 sm:mb-16">
 
           <div>
-            <span class="text-sky-500 uppercase tracking-[3px] text-sm font-medium">
+            <span class="text-sky-500 uppercase tracking-[3px] text-[12px] sm:text-sm font-medium">
               Latest Articles
             </span>
 
-            <h2 class="text-4xl md:text-6xl font-bold text-gray-100 mt-3">
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-100 mt-2 sm:mt-3">
               Industry Insights.
             </h2>
           </div>
@@ -992,13 +992,13 @@
 
                 </div>
 
-                <div class="p-6 flex flex-col">
+                <div class="p-4 sm:p-6 flex flex-col">
 
-                  <span class="text-sky-500 text-sm">
+                  <span class="text-sky-500 text-[12px] sm:text-sm">
                     18 November 2025
                   </span>
 
-                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                  <h3 class="text-[17px] sm:text-xl lg:text-2xl font-semibold text-white mt-2 sm:mt-3 mb-3 sm:mb-4">
                     The Future of Home Charging: What It Means for Apartment Owners &amp; Buyers
                   </h3>
 
@@ -1030,13 +1030,13 @@
 
                 </div>
 
-                <div class="p-6 flex flex-col">
+                <div class="p-4 sm:p-6 flex flex-col">
 
-                  <span class="text-sky-500 text-sm">
+                  <span class="text-sky-500 text-[12px] sm:text-sm">
                     18 November 2025
                   </span>
 
-                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                  <h3 class="text-[17px] sm:text-xl lg:text-2xl font-semibold text-white mt-2 sm:mt-3 mb-3 sm:mb-4">
                     Understanding EV Roaming &amp; Interoperability of Charging Networks in India
                   </h3>
 
@@ -1068,13 +1068,13 @@
 
                 </div>
 
-                <div class="p-6 flex flex-col">
+                <div class="p-4 sm:p-6 flex flex-col">
 
-                  <span class="text-sky-500 text-sm">
+                  <span class="text-sky-500 text-[12px] sm:text-sm">
                     30 October 2025
                   </span>
 
-                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                  <h3 class="text-[17px] sm:text-xl lg:text-2xl font-semibold text-white mt-2 sm:mt-3 mb-3 sm:mb-4">
                     What Happens After 2030? The Future of EV Charging Infrastructure in India &amp; How to Prepare
                   </h3>
 
@@ -1102,13 +1102,13 @@
 
                 </div>
 
-                <div class="p-6 flex flex-col">
+                <div class="p-4 sm:p-6 flex flex-col">
 
-                  <span class="text-sky-500 text-sm">
+                  <span class="text-sky-500 text-[12px] sm:text-sm">
                     21 October 2025
                   </span>
 
-                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                  <h3 class="text-[17px] sm:text-xl lg:text-2xl font-semibold text-white mt-2 sm:mt-3 mb-3 sm:mb-4">
                     Explained: Government Policies &amp; Subsidies for EV Chargers (2025 Update)
                   </h3>
 
@@ -1140,13 +1140,13 @@
 
                 </div>
 
-                <div class="p-6 flex flex-col">
+                <div class="p-4 sm:p-6 flex flex-col">
 
-                  <span class="text-sky-500 text-sm">
+                  <span class="text-sky-500 text-[12px] sm:text-sm">
                     17 October 2025
                   </span>
 
-                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                  <h3 class="text-[17px] sm:text-xl lg:text-2xl font-semibold text-white mt-2 sm:mt-3 mb-3 sm:mb-4">
                     How to Choose a Reliable Domestic EV Charger Manufacturer in India
                   </h3>
 
@@ -1178,13 +1178,13 @@
 
                 </div>
 
-                <div class="p-6 flex flex-col">
+                <div class="p-4 sm:p-6 flex flex-col">
 
-                  <span class="text-sky-500 text-sm">
+                  <span class="text-sky-500 text-[12px] sm:text-sm">
                     15 October 2025
                   </span>
 
-                  <h3 class="text-2xl font-semibold text-white mt-3 mb-4">
+                  <h3 class="text-[17px] sm:text-xl lg:text-2xl font-semibold text-white mt-2 sm:mt-3 mb-3 sm:mb-4">
                     Setting Up an EV Charging Station on Highways: What the Data Says &amp; What Works
                   </h3>
 
@@ -1264,32 +1264,32 @@
     <div class="section-divider"></div>
 
     <!-- Calculator Section -->
-    <section class="mx-auto max-w-7xl px-6 py-20" id="calculator">
-      <div class="grid grid-cols-1 gap-20 lg:grid-cols-2">
+    <section class="mx-auto max-w-7xl px-5 sm:px-6 py-14 sm:py-20" id="calculator">
+      <div class="grid grid-cols-1 gap-12 sm:gap-20 lg:grid-cols-2">
         <!-- LEFT CONTENT -->
         <div>
-          <h2 class="hero-title mb-8 font-headline text-6xl font-black leading-tight">
+          <h2 class="hero-title mb-5 sm:mb-8 font-headline text-3xl sm:text-4xl md:text-6xl font-black leading-tight">
             EV vs Fuel <br />
             <span class="text-primary">Cost Calculator</span>
           </h2>
 
-          <p class="mb-12 text-xl text-gray-100">
+          <p class="mb-6 sm:mb-12 text-sm md:text-xl text-gray-100">
             Compare your daily fuel expenses with EV charging costs and see
             how much you can save.
           </p>
 
-          <div class="space-y-6 text-gray-100">
-            <div class="flex items-center gap-4">
+          <div class="space-y-4 sm:space-y-6 text-gray-100 text-sm">
+            <div class="flex items-center gap-3 sm:gap-4">
               <span class="material-symbols-outlined text-primary">bolt</span>
               <p>Electricity is cheaper than petrol/diesel</p>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 sm:gap-4">
               <span class="material-symbols-outlined text-primary">electric_car</span>
               <p>EV maintenance cost is lower</p>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 sm:gap-4">
               <span class="material-symbols-outlined text-primary">savings</span>
               <p>Save money every month</p>
             </div>
@@ -1297,38 +1297,38 @@
         </div>
 
         <!-- CALCULATOR -->
-        <div class="glass-card rounded-3xl p-10 lg:p-14 space-y-6">
+        <div class="glass-card rounded-3xl p-5 sm:p-10 lg:p-14 space-y-4 sm:space-y-6">
           <div>
             <label class="text-xs text-gray-100">Daily Distance (km)</label>
             <input id="distance" type="number" placeholder="Enter km"
-              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+              class="w-full mt-1.5 sm:mt-2 rounded-xl bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm" />
           </div>
 
           <div>
             <label class="text-xs text-gray-100">Petrol Price (₹/L)</label>
             <input id="petrolPrice" type="number" placeholder="e.g. 100"
-              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+              class="w-full mt-1.5 sm:mt-2 rounded-xl bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm" />
           </div>
 
           <div>
             <label class="text-xs text-gray-100">Vehicle Mileage (km/L)</label>
             <input id="mileage" type="number" placeholder="e.g. 15"
-              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+              class="w-full mt-1.5 sm:mt-2 rounded-xl bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm" />
           </div>
 
           <div>
             <label class="text-xs text-gray-100">Electricity Cost (₹/kWh)</label>
             <input id="electricCost" type="number" placeholder="e.g. 8"
-              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+              class="w-full mt-1.5 sm:mt-2 rounded-xl bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm" />
           </div>
 
           <div>
             <label class="text-xs text-gray-100">EV Efficiency (km/kWh)</label>
             <input id="evEfficiency" type="number" placeholder="e.g. 6"
-              class="w-full mt-2 rounded-xl bg-white/5 px-4 py-3" />
+              class="w-full mt-1.5 sm:mt-2 rounded-xl bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm" />
           </div>
 
-          <button onclick="calculateCost()" class="w-full rounded-xl bg-primary py-4 text-xs font-bold uppercase">
+          <button onclick="calculateCost()" class="w-full rounded-xl bg-primary py-3 sm:py-4 text-sm font-bold uppercase">
             Calculate Savings
           </button>
 
@@ -1347,39 +1347,39 @@
         </button>
 
         <!-- YOUR FORM CONTENT -->
-        <div class="rounded-3xl lg:p-14 max-h-[90vh] overflow-y-auto">
+        <div class="rounded-3xl py-5 sm:py-8 lg:p-14 max-h-[90vh] overflow-y-auto">
           <!-- example -->
-          <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Contact Us</h2>
 
-          <div class="glass-card rounded-3xl p-5 lg:p-10">
-            <form class="space-y-6">
-              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div class="glass-card rounded-3xl p-4 sm:p-5 lg:p-10">
+            <form class="space-y-4 sm:space-y-6">
+              <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-gray-100">
+                  <label class="text-[11px] sm:text-[10px] font-black uppercase tracking-widest text-gray-100">
                     Full Name
                   </label>
 
                   <input type="text" placeholder="Umar Ali Shaikh"
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none" />
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-4 text-sm focus:border-primary focus:outline-none" />
                 </div>
 
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-gray-100">
+                  <label class="text-[11px] sm:text-[10px] font-black uppercase tracking-widest text-gray-100">
                     Work Email
                   </label>
 
                   <input type="email" placeholder="example@company.com"
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none" />
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-4 text-sm focus:border-primary focus:outline-none" />
                 </div>
               </div>
 
               <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-gray-100">
+                <label class="text-[11px] sm:text-[10px] font-black uppercase tracking-widest text-gray-100">
                   Interest Area
                 </label>
 
                 <select
-                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none">
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-4 text-sm focus:border-primary focus:outline-none">
                   <option class="bg-black text-gray-100">
                     Commercial Fleet Infrastructure
                   </option>
@@ -1396,16 +1396,16 @@
               </div>
 
               <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-gray-100">
+                <label class="text-[11px] sm:text-[10px] font-black uppercase tracking-widest text-gray-100">
                   Project Summary
                 </label>
 
                 <textarea rows="4" placeholder="Tell us about your infrastructure goals..."
-                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-sm focus:border-primary focus:outline-none"></textarea>
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-4 text-sm focus:border-primary focus:outline-none"></textarea>
               </div>
 
               <button onclick="sendMail()" type="submit"
-                class="w-full rounded-xl bg-primary py-5 text-xs font-black uppercase tracking-[0.2em] transition hover:bg-primary-dark">
+                class="w-full rounded-xl bg-primary py-3 sm:py-5 text-sm sm:text-xs font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] transition hover:bg-primary-dark">
                 Submit Inquiry
               </button>
             </form>
@@ -1416,21 +1416,21 @@
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="bg-dark-900 border-t border-white/10 pt-16 pb-8 px-6">
+  <footer class="bg-dark-900 border-t border-white/10 pt-10 sm:pt-16 pb-6 sm:pb-8 px-5 sm:px-6">
 
     <div class="max-w-7xl mx-auto">
 
       <!-- TOP -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-14">
 
         <!-- ================= BRAND ================= -->
         <div>
 
-          <div class="flex items-center gap-4 mb-6">
-            <img src="assets/DP-logo.PNG" alt="DP Power Solutions" class="w-14 h-14 object-contain">
+          <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <img src="assets/DP-logo.PNG" alt="DP Power Solutions" class="w-11 h-11 sm:w-14 sm:h-14 object-contain">
 
             <div>
-              <h3 class="text-2xl font-bold text-white">
+              <h3 class="text-lg sm:text-2xl font-bold text-white">
                 DP Power Solutions
               </h3>
             </div>
@@ -1443,9 +1443,9 @@
           </p>
 
           <!-- Social -->
-          <div class="mt-10">
+          <div class="mt-6 sm:mt-10">
 
-            <h4 class="text-xs uppercase tracking-[0.2em] text-white mb-5">
+            <h4 class="text-[12px] sm:text-xs uppercase tracking-[0.2em] text-white mb-3 sm:mb-5">
               Let's Connect
             </h4>
 
@@ -1475,11 +1475,11 @@
         <!-- ================= QUICK LINKS ================= -->
         <div>
 
-          <h4 class="text-xs uppercase tracking-[0.2em] text-white mb-8">
+          <h4 class="text-[12px] sm:text-xs uppercase tracking-[0.2em] text-white mb-4 sm:mb-8">
             Quick Links
           </h4>
 
-          <ul class="space-y-5 text-gray-300">
+          <ul class="space-y-3 sm:space-y-5 text-gray-300 text-sm">
 
             <li>
               <a href="#about" class="hover:text-primary transition">
@@ -1524,11 +1524,11 @@
         <!-- ================= CONTACT ================= -->
         <div>
 
-          <h4 class="text-xs uppercase tracking-[0.2em] text-white mb-8">
+          <h4 class="text-[12px] sm:text-xs uppercase tracking-[0.2em] text-white mb-4 sm:mb-8">
             Let's Connect
           </h4>
 
-          <div class="space-y-6">
+          <div class="space-y-4 sm:space-y-6">
 
             <div class="flex items-start gap-4">
 
@@ -1542,7 +1542,7 @@
 
               <div>
 
-                <p class="text-gray-400 text-sm">
+                <p class="text-gray-400 text-[12px] sm:text-sm">
                   Phone
                 </p>
 
@@ -1566,7 +1566,7 @@
 
               <div>
 
-                <p class="text-gray-400 text-sm">
+                <p class="text-gray-400 text-[12px] sm:text-sm">
                   Email
                 </p>
 
@@ -1590,7 +1590,7 @@
 
               <div>
 
-                <p class="text-gray-400 text-sm">
+                <p class="text-gray-400 text-[12px] sm:text-sm">
                   Address
                 </p>
 
@@ -1610,9 +1610,9 @@
 
       <!-- ================= BOTTOM ================= -->
 
-      <div class="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-4">
+      <div class="mt-8 sm:mt-16 pt-5 sm:pt-6 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-3 sm:gap-4">
 
-        <p class="text-gray-400 text-sm">
+        <p class="text-gray-400 text-[12px] sm:text-sm">
           © 2026 DP Power Solutions. All Rights Reserved.
         </p>
 

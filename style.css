@@ -383,3 +383,191 @@ body {
 .delay-300 {
     animation-delay: 0.3s;
 }
+
+/* --------------------------------------------------------------------------
+   Typography & density refinement
+   Keeps the existing visual language while giving content a more compact,
+   consistent reading rhythm across desktop and small screens.
+   -------------------------------------------------------------------------- */
+:root {
+    --content-gutter: clamp(1.25rem, 3vw, 1.5rem);
+    --section-space: clamp(3.75rem, 7vw, 5rem);
+    --heading-xl: clamp(2.25rem, 4.8vw, 3.5rem);
+    --heading-lg: clamp(1.875rem, 3.8vw, 3rem);
+}
+
+body {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+}
+
+/* Navigation remains easy to target, with less vertical and horizontal bulk. */
+header nav {
+    width: min(95vw, 72rem);
+    padding: 0.45rem 1.25rem;
+}
+
+header nav > a { gap: 0.65rem; }
+header nav > a span { font-size: 1rem; line-height: 1.25; }
+header nav > a img { width: 2.25rem; height: 2.25rem; }
+header nav .lgs\:flex { gap: 2rem; font-size: 0.875rem; line-height: 1.25; }
+#sidebar { padding: 1.25rem; }
+#sidebar > div:first-child { margin-bottom: 1.75rem; }
+#sidebar > div:last-child { gap: 0.5rem; font-size: 0.9375rem; }
+.sidebar-link { gap: 0.625rem; padding: 0.625rem 0.75rem; }
+
+/* Shared page rhythm */
+#about, #calculator { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+#products { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+#about > div, #calculator > div { gap: clamp(3rem, 6vw, 4.5rem); }
+#products > div > div:first-child { margin-bottom: clamp(3rem, 6vw, 4.5rem); gap: 1.5rem; }
+
+/* Hero */
+#hero { padding-top: clamp(6.5rem, 12vw, 8rem); padding-bottom: clamp(4rem, 8vw, 5rem); }
+#hero h1 { font-size: var(--heading-xl); line-height: 1.08; letter-spacing: -0.025em; }
+#hero h1 .gradient-text { margin-top: 0.5rem; }
+#hero p { max-width: 42rem; margin: 1.25rem auto 0; font-size: clamp(1rem, 1.6vw, 1.0625rem); line-height: 1.65; }
+#hero .mt-10 { margin-top: 1.75rem; }
+#hero a { padding: 0.625rem 1.5rem; font-size: 0.9375rem; line-height: 1.4; }
+
+/* Section headings and supporting copy */
+#about h2, #products h2, #calculator h2 { font-size: var(--heading-lg); line-height: 1.12; letter-spacing: -0.02em; }
+#about h2, #calculator h2 { margin-bottom: 1.25rem; }
+#about > div > div:first-child > p, #calculator > div > div:first-child > p {
+    margin-bottom: 1.75rem;
+    font-size: clamp(1rem, 1.6vw, 1.0625rem);
+    line-height: 1.65;
+}
+#products > div > div:first-child > div > div:first-child { margin-bottom: 0.625rem; font-size: 0.6875rem; }
+#products > div > div:first-child > p { font-size: 0.9375rem; line-height: 1.6; }
+
+/* About cards and visual labels */
+#about .glass-card.rounded-2xl { padding: 1.25rem; }
+#about .glass-card.rounded-2xl .material-symbols-outlined { margin-bottom: 0.75rem; font-size: 1.75rem; }
+#about .glass-card.rounded-2xl h4 { margin-bottom: 0.375rem; font-size: 1rem; line-height: 1.3; }
+#about .glass-card.rounded-2xl p { font-size: 0.8125rem; line-height: 1.55; }
+#about .glass-card.rounded-3xl { padding: 1.5rem; }
+#about .glass-card.rounded-3xl .material-symbols-outlined { font-size: 1.75rem; }
+#about .glass-card.rounded-3xl p { margin-top: 0.625rem; font-size: 0.75rem; letter-spacing: 0.08em; }
+
+/* Product cards: compact copy and feature panel without changing its interaction. */
+#products .productsection { gap: 1.25rem; }
+#products .productsection > .group { min-width: min(18.75rem, calc(100vw - (var(--content-gutter) * 2))); }
+#products .productsection .relative.h-\[350px\] { height: 20rem; }
+#products .productsection .absolute.inset-y-0 { padding: 1.25rem; }
+#products .productsection ul { gap: 0.875rem; }
+#products .productsection li { gap: 0.625rem; padding-bottom: 0.625rem; }
+#products .productsection li > div:first-child { width: 2rem; height: 2rem; flex: 0 0 2rem; }
+#products .productsection li p:first-child { font-size: 0.8125rem; line-height: 1.3; }
+#products .productsection li p:last-child { margin-top: 0.125rem; font-size: 0.6875rem; line-height: 1.4; }
+#products .productsection > .group > div:last-child { padding: 1.25rem; }
+#products .productsection h3 { margin-bottom: 0.375rem; font-size: 1.25rem; line-height: 1.25; }
+#products .productsection h3 + p { font-size: 0.8125rem; line-height: 1.55; }
+#products .productsection h3 ~ a { margin-top: 1rem; font-size: 0.875rem; }
+
+/* Testimonials, including the floating status bar. */
+#testimonials { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+#testimonials .grid { gap: clamp(1.75rem, 4vw, 3rem); }
+#testimonials .relative.h-\[350px\] { height: clamp(19rem, 42vw, 27rem); }
+#testimonials .absolute.bottom-3 { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; padding: 0.625rem; border-radius: 0.75rem; }
+#testimonials .absolute.bottom-3 h3 { font-size: clamp(0.875rem, 3.4vw, 1.125rem); line-height: 1.2; }
+#testimonials .absolute.bottom-3 p { margin-top: 0.125rem; font-size: clamp(0.6875rem, 2.1vw, 0.75rem); line-height: 1.25; }
+#testimonials .inline-flex { margin-bottom: 0.875rem; padding: 0.375rem 0.75rem; font-size: 0.75rem; line-height: 1.25; }
+#testimonials h2 { margin-bottom: 1.25rem; font-size: var(--heading-lg); line-height: 1.12; letter-spacing: -0.02em; }
+#testimonialTrack { gap: 1rem; }
+#testimonialTrack > div > div { padding: 1.25rem; border-radius: 1.25rem; }
+#testimonialTrack .text-yellow-400 { margin-bottom: 0.625rem; font-size: 1rem; }
+#testimonialTrack .text-gray-300 { margin-bottom: 1.25rem; font-size: 0.9375rem; line-height: 1.6; }
+#testimonialTrack h4 { font-size: 0.9375rem; }
+#testimonialTrack h4 + p { font-size: 0.8125rem; }
+#prevBtn, #nextBtn { width: 2.5rem; height: 2.5rem; }
+#testimonials .flex.items-center.gap-3.mt-8 { margin-top: 1.25rem; }
+
+/* Blog cards */
+main > section:not(#hero):not(#about):not(#products):not(#testimonials):not(#calculator):not(#contactModal) {
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
+}
+main > section:not(#hero):not(#about):not(#products):not(#testimonials):not(#calculator):not(#contactModal) > div > div:first-child { margin-bottom: 2.5rem; }
+main > section:not(#hero):not(#about):not(#products):not(#testimonials):not(#calculator):not(#contactModal) h2 { font-size: var(--heading-lg); line-height: 1.12; letter-spacing: -0.02em; }
+.swiper-slide article img { height: 13rem; }
+.swiper-slide article > div:last-child { padding: 1.25rem; }
+.swiper-slide article span { font-size: 0.75rem; }
+.swiper-slide article h3 { margin-top: 0.625rem; margin-bottom: 0.875rem; font-size: 1.1875rem; line-height: 1.32; }
+.swiper-slide article a { font-size: 0.875rem; }
+
+/* Calculator and form controls */
+#calculator .space-y-6 { row-gap: 1.125rem; }
+#calculator label { font-size: 0.75rem; }
+#calculator input { margin-top: 0.375rem; padding: 0.625rem 0.875rem; font-size: 0.9375rem; line-height: 1.4; }
+#calculator button { padding: 0.75rem; font-size: 0.6875rem; letter-spacing: 0.08em; }
+#result { margin-top: 1rem; font-size: 0.9375rem; line-height: 1.55; }
+#contactModal > div > div { padding: 2rem 0; }
+#contactModal h2 { margin-bottom: 1rem; font-size: clamp(1.75rem, 5vw, 2.25rem); line-height: 1.15; }
+#contactModal .glass-card { padding: 1.25rem; }
+#contactModal form { gap: 1rem; }
+#contactModal form .grid { gap: 1rem; }
+#contactModal input, #contactModal select, #contactModal textarea { padding: 0.625rem 0.875rem; font-size: 0.875rem; line-height: 1.4; }
+#contactModal button[type="submit"] { padding: 0.875rem; font-size: 0.6875rem; letter-spacing: 0.1em; }
+
+/* Footer uses the same compact reading rhythm. */
+footer { padding-top: clamp(3.5rem, 7vw, 4.5rem); padding-bottom: 1.5rem; }
+footer .max-w-7xl > div:first-child { gap: clamp(2.5rem, 5vw, 3.5rem); }
+footer h3 { font-size: 1.25rem; }
+footer p, footer li, footer a { font-size: 0.875rem; line-height: 1.55; }
+footer .leading-8 { line-height: 1.65; }
+footer .mt-10 { margin-top: 1.75rem; }
+footer .space-y-5 { row-gap: 0.875rem; }
+footer .space-y-6 { row-gap: 1rem; }
+footer .mt-16 { margin-top: 2.5rem; }
+
+@media (max-width: 639px) {
+    /* Mobile type scale: Tailwind's text-lg/text-xl utilities are applied
+       directly to elements, so these explicit overrides keep body copy at a
+       readable 14px instead of the previous 18-20px. */
+    body { font-size: 0.875rem; line-height: 1.55; }
+    header nav { top: 0.75rem; padding: 0.375rem 1rem; }
+    header nav > a img { width: 2rem; height: 2rem; }
+    header nav > a span { font-size: 0.875rem; }
+    #sidebar > div:last-child { font-size: 0.875rem; }
+    .sidebar-link { padding: 0.5625rem 0.625rem; }
+    #hero h1 { font-size: clamp(2rem, 10vw, 2.5rem); }
+    #hero p { font-size: 0.875rem; line-height: 1.6; }
+    #hero a { padding: 0.625rem 1.125rem; font-size: 0.875rem; }
+    #about, #products, #calculator { padding-left: var(--content-gutter); padding-right: var(--content-gutter); }
+    #about .grid.grid-cols-1.gap-4 { gap: 0.75rem; }
+    #about h2, #products h2, #calculator h2, #testimonials h2,
+    main > section:not(#hero):not(#about):not(#products):not(#testimonials):not(#calculator):not(#contactModal) h2 {
+        font-size: clamp(1.75rem, 8vw, 2.125rem);
+    }
+    #about > div > div:first-child > p,
+    #calculator > div > div:first-child > p,
+    #products > div > div:first-child > p,
+    #about .glass-card.rounded-2xl p,
+    #products .productsection h3 + p,
+    #testimonialTrack .text-gray-300,
+    #calculator .space-y-6 > div p,
+    .swiper-slide article h3,
+    footer p, footer li, footer a {
+        font-size: 0.875rem !important;
+        line-height: 1.55;
+    }
+    #about .glass-card.rounded-2xl h4 { font-size: 0.9375rem; }
+    #products .productsection h3 { font-size: 1.0625rem; }
+    #products .productsection li p:first-child { font-size: 0.75rem; }
+    #products .productsection li p:last-child { font-size: 0.6875rem; }
+    #products .productsection h3 ~ a, .swiper-slide article a { font-size: 0.8125rem; }
+    #testimonials .inline-flex { font-size: 0.6875rem; }
+    #testimonialTrack h4 { font-size: 0.875rem; }
+    #testimonialTrack h4 + p, .swiper-slide article span { font-size: 0.75rem; }
+    #calculator label, #contactModal label { font-size: 0.6875rem; }
+    #calculator input, #contactModal input, #contactModal select, #contactModal textarea { font-size: 0.875rem; }
+    #calculator button, #contactModal button[type="submit"] { font-size: 0.6875rem; }
+    #testimonials .max-w-7xl, main > section > .max-w-7xl { padding-left: var(--content-gutter); padding-right: var(--content-gutter); }
+    #testimonials .relative.h-\[350px\] { height: 19rem; }
+    #testimonials .absolute.bottom-3 { padding: 0.5rem; }
+    #testimonialTrack > div > div { padding: 1rem; }
+    #contactModal > div { margin-left: 1rem; margin-right: 1rem; }
+    footer { padding-left: var(--content-gutter); padding-right: var(--content-gutter); }
+}
