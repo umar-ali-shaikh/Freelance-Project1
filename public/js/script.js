@@ -289,13 +289,13 @@ let autoSlide;
 // ===============================
 // GO TO SLIDE
 // ===============================
-const GAP = 20;
-
 function goToSlide(index) {
   currentIndex = index;
 
   const cardWidth = cards[0].offsetWidth;
-  const slideDistance = (cardWidth + GAP) * currentIndex;
+  const gap = parseFloat(getComputedStyle(track).gap);
+
+  const slideDistance = (cardWidth + gap) * currentIndex;
 
   gsap.to(track, {
     x: -slideDistance,
@@ -465,15 +465,30 @@ document.addEventListener('keydown', (e) => {
 // ===============================
 // CONTACT FORM (API CALL)
 // ===============================
+function setContactStatus(message, isError) {
+  const statusEl = document.getElementById("contactFormStatus");
+  if (!statusEl) return;
+
+  statusEl.textContent = message;
+  statusEl.classList.remove("hidden", "text-red-500", "text-green-500");
+  statusEl.classList.add(isError ? "text-red-500" : "text-green-500");
+}
+
 async function sendMail() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const submitBtn = document.getElementById("contactSubmitBtn");
 
   if (!name || !email || !message) {
-    alert("Please fill all fields");
+    setContactStatus("Please fill all fields.", true);
     return;
   }
+
+  const originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+  setContactStatus("Sending your message...", false);
 
   try {
     const res = await fetch("/api/send-mail", {
@@ -482,12 +497,23 @@ async function sendMail() {
       body: JSON.stringify({ name, email, message }),
     });
 
-    const data = await res.json();
+    const data = await res.json().catch(() => ({}));
 
-    alert(data.success ? "Message sent ✅" : "Failed ❌");
+    if (res.ok && data.success) {
+      setContactStatus("Message sent successfully. We'll be in touch soon.", false);
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
+    } else {
+      setContactStatus(data.message || "Failed to send message. Please try again.", true);
+    }
 
   } catch (error) {
-    alert("Something went wrong");
+    setContactStatus("Network error. Please check your connection and try again.", true);
+
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
   }
 }
 

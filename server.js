@@ -1,42 +1,52 @@
-import nodemailer from "nodemailer";
+import path from "path";
+import { fileURLToPath } from "url";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import helmet from "helmet";
+import compression from "compression";
 
-  const { name, email, message } = req.body;
+import contactRoutes from "./routes/contact.js";
+import notFound from "./middleware/notFound.js";
+import errorHandler from "./middleware/errorHandler.js";
+import { helmetOptions, getCorsOptions } from "./config/security.js";
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: "All fields required" });
-  }
+dotenv.config();
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const PUBLIC_DIR = path.join(__dirname, "public");
+
+app.disable("x-powered-by");
+
+app.use(helmet(helmetOptions));
+app.use(compression());
+app.use(cors(getCorsOptions()));
+app.use(express.json({ limit: "10kb" }));
+
+app.use(
+  express.static(PUBLIC_DIR, {
+    etag: true,
+    maxAge: "1d",
+    setHeaders: (res, filePath) => {
+      // HTML must always revalidate so deploys show up immediately;
+      // hashed/static assets (images, fonts, js, css) can cache longer.
+      if (filePath.endsWith(".html")) {
+        res.setHeader("Cache-Control", "no-cache");
+      }
     },
-  });
+  })
+);
 
-  try {
-    await transporter.sendMail({
-      from: `"Website Contact" <${process.env.EMAIL_USER}>`, // ✅ FIXED
-      replyTo: email, // ✅ important
-      to: process.env.EMAIL_USER,
-      subject: `New Message from ${name}`,
-      html: `
-        <h3>New Contact Message</h3>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Message:</b> ${message}</p>
-      `,
-    });
+app.use("/api/send-mail", contactRoutes);
 
-    return res.status(200).json({ success: true });
+app.use(notFound);
+app.use(errorHandler);
 
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ success: false });
-  }
-}
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
