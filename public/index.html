@@ -4,8 +4,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="description"
+    content="DP Power Solution Pvt Ltd provides EV Charging Infrastructure, DC Fast Chargers, AC Chargers, Installation, Maintenance, and Smart EV Charging Solutions across India." />
   <title>EV Volt - Powering the Future of Mobility</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+
+  <!-- Apple -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Android / PWA -->
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0488E9" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -67,16 +80,13 @@
 
   <!-- TopNavBar -->
   <header>
-    <nav
-      class="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-6xl glass-card text-gray-100 px-4 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between rounded-full shadow-xl border border-white/10 z-50">
+    <nav id="site-navbar"
+      class="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-6xl glass-card text-gray-100 px-4 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between rounded-full shadow-xl border border-white/10 z-50 nav-enter">
 
 
       <!-- LOGO -->
       <a href="index.html#hero" class="flex items-center gap-2 sm:gap-3">
-        <img src="assets/DP-logo.PNG" class="w-10 h-10 object-contain scale-[1.5]" />
-        <span class="text-sm md:text-lg font-semibold whitespace-nowrap">
-          DP Power Solutions
-        </span>
+        <img src="assets/DP-logo.PNG" alt="DP Power Solutions" class="w-10 h-10 object-contain scale-[1.5]" />
       </a>
 
       <!-- Nav LINKS -->
@@ -1514,7 +1524,7 @@
                   Phone
                 </p>
 
-                 <p class="text-white">
+                <p class="text-white">
                   <a href="tel:+919930806961" class="hover:text-primary transition-colors">+91 99308 06961</a>
                 </p>
 
@@ -1539,7 +1549,8 @@
                 </p>
 
                 <p class="text-white break-all">
-                  <a href="mailto:contact@dppowersolutions.com" class="hover:text-primary transition-colors">contact@dppowersolutions.com</a>
+                  <a href="mailto:contact@dppowersolutions.com"
+                    class="hover:text-primary transition-colors">contact@dppowersolutions.com</a>
                 </p>
 
               </div>
@@ -1563,7 +1574,9 @@
                 </p>
 
                 <p class="text-white">
-                  <a href="https://www.google.com/maps/place/DEEPAK+AUTO+PARTS/@19.2213549,72.9878479,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b9472bf71925:0xa21f0b1aa8524f82!8m2!3d19.2213549!4d72.9904282!16s%2Fg%2F1hm4gjxzb?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Mumbai, Maharashtra, India</a>
+                  <a href="https://www.google.com/maps/place/DEEPAK+AUTO+PARTS/@19.2213549,72.9878479,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b9472bf71925:0xa21f0b1aa8524f82!8m2!3d19.2213549!4d72.9904282!16s%2Fg%2F1hm4gjxzb?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Mumbai,
+                    Maharashtra, India</a>
                 </p>
 
               </div>
@@ -1601,6 +1614,7 @@
   <!-- SWIPER -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <script src="js/smart-navbar.js"></script>
   <script src="js/script.js"></script>
 </body>
 

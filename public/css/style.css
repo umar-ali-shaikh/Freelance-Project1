@@ -432,6 +432,40 @@ header nav .lgs\:flex {
     line-height: 1.25;
 }
 
+/* ===============================
+   SMART AUTO-HIDE NAVBAR
+   Only the transform/opacity react to scroll; layout, spacing, colors
+   and the -translate-x-1/2 centering above are untouched. --tw-translate-y
+   is the CSS variable Tailwind's translate utility reads, so setting it
+   here composes with the existing transform instead of replacing it.
+   =============================== */
+#site-navbar {
+    transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+    will-change: transform, opacity;
+}
+
+#site-navbar.nav-enter {
+    --tw-translate-y: -100%;
+    opacity: 0;
+}
+
+#site-navbar.nav-hidden {
+    --tw-translate-y: -160%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #site-navbar {
+        transition: opacity 200ms linear;
+    }
+
+    #site-navbar.nav-enter,
+    #site-navbar.nav-hidden {
+        --tw-translate-y: 0;
+    }
+}
+
 #sidebar {
     padding: 1.25rem;
 }

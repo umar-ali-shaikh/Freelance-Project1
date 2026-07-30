@@ -23,6 +23,17 @@ closeBtns.addEventListener("click", () => {
 
 
 // ===============================
+// SMART AUTO-HIDE NAVBAR
+// ===============================
+const siteNavbar = document.getElementById("site-navbar");
+
+initSmartNavbar(siteNavbar, {
+  // Don't hide the navbar out from under the user while the mobile menu is open.
+  isSuspended: () => !sidebar.classList.contains("-translate-x-full"),
+});
+
+
+// ===============================
 // CUSTOM CURSOR (DOT FOLLOW)
 // ===============================
 
