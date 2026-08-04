@@ -34,6 +34,34 @@ initSmartNavbar(siteNavbar, {
 
 
 // ===============================
+// LAZY-LOAD TESTIMONIAL VIDEO (YOUTUBE)
+// The iframe only gets its src (and starts loading YouTube's player) once
+// the section scrolls into view, instead of autoplaying from page load.
+// ===============================
+const testimonialVideo = document.getElementById("testimonialVideo");
+const testimonialVideoWrap = document.getElementById("testimonialVideoWrap");
+
+if (testimonialVideo && testimonialVideoWrap && "IntersectionObserver" in window) {
+  const videoObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          testimonialVideo.src = testimonialVideo.dataset.src;
+          observer.unobserve(testimonialVideoWrap);
+        }
+      });
+    },
+    { rootMargin: "200px 0px" } // start loading a bit before it's fully on-screen
+  );
+
+  videoObserver.observe(testimonialVideoWrap);
+} else if (testimonialVideo) {
+  // No IntersectionObserver support: fall back to loading immediately.
+  testimonialVideo.src = testimonialVideo.dataset.src;
+}
+
+
+// ===============================
 // CUSTOM CURSOR (DOT FOLLOW)
 // ===============================
 
@@ -374,14 +402,22 @@ if (prevBtn) {
 let startX = 0;
 let endX = 0;
 
-track.addEventListener("touchstart", (e) => {
-  stopAutoSlide();
-  startX = e.touches[0].clientX;
-});
+track.addEventListener(
+  "touchstart",
+  (e) => {
+    stopAutoSlide();
+    startX = e.touches[0].clientX;
+  },
+  { passive: true }
+);
 
-track.addEventListener("touchmove", (e) => {
-  endX = e.touches[0].clientX;
-});
+track.addEventListener(
+  "touchmove",
+  (e) => {
+    endX = e.touches[0].clientX;
+  },
+  { passive: true }
+);
 
 track.addEventListener("touchend", () => {
   const diff = startX - endX;
@@ -555,19 +591,23 @@ if (container) {
   // DESKTOP: VERTICAL SCROLL → HORIZONTAL
   // ===============================
   if (!isMobile) {
-    window.addEventListener("scroll", () => {
-      const rect = container.getBoundingClientRect();
+    window.addEventListener(
+      "scroll",
+      () => {
+        const rect = container.getBoundingClientRect();
 
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const currentScroll = window.scrollY;
-        const diff = currentScroll - lastScroll;
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const currentScroll = window.scrollY;
+          const diff = currentScroll - lastScroll;
 
-        scrollX += diff * 1.5;
+          scrollX += diff * 1.5;
 
-        updateScroll();
-        lastScroll = currentScroll;
-      }
-    });
+          updateScroll();
+          lastScroll = currentScroll;
+        }
+      },
+      { passive: true }
+    );
   }
 
   // ===============================

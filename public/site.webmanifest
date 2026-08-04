@@ -1,6 +1,12 @@
 {
-  "name": "DP Power Solutions",
+  "name": "DP Power Solutions - EV Charging Infrastructure",
   "short_name": "DP Power",
+  "description": "DP Power Solutions Pvt Ltd delivers AC and DC EV charging infrastructure across India.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "lang": "en-IN",
+  "categories": ["business", "shopping"],
   "icons": [
     { "src": "/icons/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/icons/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }
